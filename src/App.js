@@ -2,6 +2,7 @@ import React from "react";
 import './App.css';
 import Date from "./components/Date";
 import InputTask from "./components/InputTask";
+import TodoList from "./components/TodoList";
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
         <p className='todolist-header'>To do List</p>
         <div className='todolist-container'> 
           <InputTask />
+          <TodoList />
         </div>
       </div>
     </div>
