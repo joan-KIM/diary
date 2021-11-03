@@ -1,13 +1,18 @@
 import React from "react";
 import './App.css';
-import Button from './components/Button';
 import Date from "./components/Date";
+import InputTask from "./components/InputTask";
 
 function App() {
   return (
     <div className="App">
       <Date />
-      <Button title={"Add Task"}/>
+      <div className='todolist-wrapper'>
+        <p className='todolist-header'>To do List</p>
+        <div className='todolist-container'> 
+          <InputTask />
+        </div>
+      </div>
     </div>
   );
 }

@@ -4,6 +4,9 @@ body{
   background-color: #F8F8F8;
   font-family: 'Montserrat', sans-serif;
   font-size: 14px;
+}
+
+.App{
   display: flex;
 }
 
@@ -24,11 +27,52 @@ body{
   font-size: 3em;
 }
 
+.todolist-wrapper{
+  height: 40%;
+  width: 380px;
+}
+
+.todolist-header{
+  font-size: 18px;
+  font-weight: 500;
+  color: #6E6B7B;
+  margin: 0;
+  margin-bottom: 0.5em;
+}
+
+.todolist-container{
+  background-color: #ffffff;
+  /* width: 30%; */
+  height: 85%;
+  border-radius: 0.5em;
+  border: 1px solid #EBE9F1;
+  color: #6E6B7B;
+}
+
+
+.input-container{
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.5em 1em;
+  display: flex;
+  border-bottom: 1px solid #EBE9F1;
+}
+
+.input-task{
+  width: 70%;
+  font-family: 'Montserrat', sans-serif;
+  padding: 0.5em;
+  border-style: none;
+  outline: none;
+  color: #6E6B7B;
+}
+
+
 .add-task-btn{
   position: relative;
   overflow: hidden;
   display: block;
-  /* margin-left: auto; */
+  margin-left: auto;
   font-family: 'Montserrat', sans-serif;
   font-size: 12px;
   font-weight: 500;
@@ -38,8 +82,6 @@ body{
   color: #ffffff;
   padding: 0 1.5em;
   transition: box-shadow .2s ease;
-  width: 100px;
-  height : 50px;
 }
 
 .add-task-btn:active, .add-task-btn:focus{
