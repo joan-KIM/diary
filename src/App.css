@@ -1,3 +1,29 @@
+body{
+  width: 100vw;
+  height: 100vh;
+  background-color: #F8F8F8;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px;
+  display: flex;
+}
+
+.date-wrapper{
+  font-weight: 600;
+  color: #6E6B7B;
+  width: 13%;
+}
+
+.date{
+  font-size: 5em;
+  margin: 0;
+  line-height: 80%;
+}
+
+.day{
+  margin: 0;
+  font-size: 3em;
+}
+
 .add-task-btn{
   position: relative;
   overflow: hidden;
