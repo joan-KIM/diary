@@ -67,6 +67,14 @@ body{
   color: #6E6B7B;
 }
 
+::placeholder{
+  color: #B9B9C3;
+}
+
+.input-task:focus::placeholder{
+  padding-left: 0.4em;
+  transition: padding-left 0.2s ease;
+}
 
 .add-task-btn{
   position: relative;
