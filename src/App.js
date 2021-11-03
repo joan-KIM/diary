@@ -5,7 +5,7 @@ import Button from './components/Button';
 function App() {
   return (
     <div className="App">
-      <Button title={"add"} onClick={()=>{console.log('버튼')}} />
+      <Button title={"Add Task"}/>
     </div>
   );
 }

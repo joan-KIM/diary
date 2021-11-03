@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef} from "react";
-import './style.css';
 
 export default function Button(props){
     const ref = useRef();
@@ -11,12 +10,11 @@ export default function Button(props){
     const [top, setTop] = useState(0);
     const [radius, setRadius] = useState(0);
 
-    const [isShow, setIsShow] = useState(0);
+    const [isShow, setIsShow] = useState(false);
 
     // 처음 html 등록됐을 때 실행
     useEffect( ()=> {
         if (ref.current){
-            // console.log(ref.current);    // 버튼 (이 출력됨)
             setWidth(ref.current.clientWidth);
             setHeight(ref.current.clientHeight);
             setoffsetLeft(ref.current.offsetLeft);
@@ -35,11 +33,23 @@ export default function Button(props){
         setTimeout(()=>{
             setIsShow(false);
         }, 600)
-        props.onClick();
+    }
+
+    const mouseOverHandler = (event) => {
+        event.target.style.boxShadow = "0 3px 10px rgb(234, 84, 85, 0.5)";
+    }
+
+    const removeShadow = (event) => {
+        event.target.style.boxShadow = "none";
     }
 
     return(
-        <button style={{width:'100px', height:'60px'}} ref={ref} onClick = {clickHandler}>
+        <button 
+            className="add-task-btn"
+            ref={ref}
+            onClick = {clickHandler} onMouseOver={mouseOverHandler} 
+            onMouseOut={removeShadow} onMouseDown={removeShadow}
+        >
             {props.title}
             {isShow && <span className="ripple"
             style={{width: radius*2, height:radius*2, left, top}} />}
