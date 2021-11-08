@@ -1,8 +1,7 @@
 import React from "react";
 import './App.css';
 import Date from "./components/Date";
-import InputTask from "./components/InputTask";
-import TodoList from "./components/TodoList";
+import TodoListContainer from "./components/TodoListContainer";
 
 function App() {
   return (
@@ -10,10 +9,7 @@ function App() {
       <Date />
       <div className='todolist-wrapper'>
         <p className='todolist-header'>To do List</p>
-        <div className='todolist-container'> 
-          <InputTask />
-          <TodoList />
-        </div>
+        <TodoListContainer />
       </div>
     </div>
   );

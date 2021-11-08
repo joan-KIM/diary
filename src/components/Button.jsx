@@ -33,7 +33,10 @@ export default function Button(props){
         setTimeout(()=>{
             setIsShow(false);
         }, 600)
+
+        props.createTask();
     }
+
 
     const mouseOverHandler = (event) => {
         event.target.style.boxShadow = "0 3px 10px rgb(234, 84, 85, 0.5)";

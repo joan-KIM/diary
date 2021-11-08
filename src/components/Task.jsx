@@ -1,12 +1,15 @@
 import React from "react";
 import {MdClear} from 'react-icons/md';
 
-export default function Task(){
+export default function Task(props){
+    const title = props.value.title;
+
     return(
         <li className='task'>
             <input type='checkbox' />
-            이력서 작성 및 출력
+            {title}
             <MdClear className='delete-task-btn'/>
         </li>
+
     )
 }
