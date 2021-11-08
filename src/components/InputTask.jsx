@@ -1,7 +1,17 @@
-import React from "react";
+import React, {useState} from "react";
 import Button from "./Button";
 
-export default function InputTask(props){
+export default function InputTask({createTask}){
+    const [text, setText] = useState('');
+
+    const changeHandler = (event) => {
+        setText(event.target.value);
+    }
+
+    const clickHandler = () => {
+        createTask(text);
+        setText('');
+    }
 
     return(
         <div className='input-container'>
@@ -9,10 +19,10 @@ export default function InputTask(props){
                 type='text' 
                 className='input-task'
                 placeholder='Task Title' 
-                value={props.value}
-                onChange={props.changeHandler}
+                value={text}
+                onChange={changeHandler}
             />
-            <Button title={'Add Task'} createTask={props.createTask} />
+            <Button title={'Add Task'} onClick={clickHandler} />
         </div>
     )
 }

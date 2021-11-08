@@ -4,23 +4,17 @@ import InputTask from "./InputTask";
 import TodoList from "./TodoList";
 
 export default function TodoListContainer(){
-    const [text, setText] = useState('');
     const [tasks, setTasks] = useState([]);
 
-    const createTask = () => {
+    const createTask = (text) => {
         setTasks([
             ...tasks,
             {
-                id: tasks.length+1,
+                id: Date.now(),
                 title: text,
                 state: 'todo'
             }
         ]);
-        setText('');
-    }
-
-    const changeHandler = (event) => {
-        setText(event.target.value);
     }
 
     useEffect(()=>{
@@ -29,7 +23,7 @@ export default function TodoListContainer(){
 
     return(
         <div className='todolist-container'>
-            <InputTask value={text} changeHandler={changeHandler} createTask={createTask} />
+            <InputTask createTask={createTask} />
             <TodoList tasks={tasks} />
         </div>
     )
