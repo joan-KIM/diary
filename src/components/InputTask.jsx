@@ -1,7 +1,8 @@
 import React from "react";
 import Button from "./Button";
+import propTypes from "prop-types";
 
-export default function InputTask(props){
+export default function InputTask({value, changeHandler, createTask}){
 
     return(
         <div className='input-container'>
@@ -9,10 +10,16 @@ export default function InputTask(props){
                 type='text' 
                 className='input-task'
                 placeholder='Task Title' 
-                value={props.value}
-                onChange={props.changeHandler}
+                value={value}
+                onChange={changeHandler}
             />
-            <Button title={'Add Task'} createTask={props.createTask} />
+            <Button title={'Add Task'} createTask={createTask} />
         </div>
     )
+}
+
+InputTask.propTypes = {
+    value: propTypes.string.isRequired,
+    changeHandler: propTypes.func.isRequired,
+    createTask: propTypes.func.isRequired
 }

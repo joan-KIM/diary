@@ -1,8 +1,8 @@
 import React from "react";
 import {MdClear} from 'react-icons/md';
+import propTypes from 'prop-types';
 
-export default function Task(props){
-    const title = props.value.title;
+export default function Task({id, title, state}) {
 
     return(
         <li className='task'>
@@ -10,6 +10,11 @@ export default function Task(props){
             {title}
             <MdClear className='delete-task-btn'/>
         </li>
-
     )
+}
+
+Task.propTypes = {
+    id: propTypes.number.isRequired,
+    title: propTypes.string.isRequired,
+    state: propTypes.oneOf(['todo', 'done']).isRequired
 }
