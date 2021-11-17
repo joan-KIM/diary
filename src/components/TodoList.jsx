@@ -2,8 +2,8 @@ import React from "react";
 import Task from "./Task";
 import propTypes from 'prop-types';
 
-export default function TodoList({tasks}){
-    const todolist = tasks.map(({id, title, state}) => <Task id={id} title={title} state={state} />);
+export default function TodoList({tasks,removeTask}){
+    const todolist = tasks.map(({id, title, state}) => <Task id={id} title={title} state={state} onClick={removeTask}/>);
 
     return(
         <ul className='todolist'>

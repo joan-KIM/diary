@@ -1,14 +1,25 @@
 import React from "react";
-import {MdClear} from 'react-icons/md';
-import propTypes from 'prop-types';
+import {MdClear, MdCheck} from 'react-icons/md';
+import propTypes, { func } from 'prop-types';
+import classNames from "classnames";
 
-export default function Task({id, title, state}) {
+export default function Task({id, title, state, onClick}) {
+    const clickHandler = () => {
+        onClick(id);
+    }
 
     return(
-        <li className='task'>
-            <input type='checkbox' />
-            {title}
-            <MdClear className='delete-task-btn'/>
+        <li className='task' key={id}>
+            <label className='checkbox'>
+                <input 
+                type='checkbox' 
+                className='checkbox-input' 
+                // onChange={} 
+                />
+                <MdCheck className='checkmark' />
+            </label>
+            <span>{title}</span>
+            <MdClear className='delete-task-btn' onClick={clickHandler}/>
         </li>
     )
 }

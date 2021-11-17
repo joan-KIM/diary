@@ -17,6 +17,11 @@ export default function TodoListContainer(){
         ]);
     }
 
+    function removeTask(id){
+        const todolist = tasks.filter(task => task.id !== id);
+        setTasks(todolist);
+    }
+
     useEffect(()=>{
         console.log('TO DO LIST', tasks);
     }, [tasks]);
@@ -24,7 +29,7 @@ export default function TodoListContainer(){
     return(
         <div className='todolist-container'>
             <InputTask createTask={createTask} />
-            <TodoList tasks={tasks} />
+            <TodoList tasks={tasks} removeTask={removeTask} />
         </div>
     )
 }

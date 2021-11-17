@@ -128,8 +128,46 @@ body{
 .delete-task-btn{
   display: block;
   margin-left: auto;
-  /* cursor: pointer; */
+  cursor: pointer;
   font-size: 18px;
   color: #D8D6DE;
 }
+
+.delete-task-btn:hover{
+  color: #B9B9C3;
+  transition: color .3s ease;
+}
+
+.checkbox-input{
+  display: none;
+}
+
+label{
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #D8D6DE;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.checkmark{
+  visibility: hidden;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.checked{
+  background-color: #EA5455;
+  border: 1px solid #EA5455;
+  box-shadow: 0 2px 5px rgb(234, 84, 85, 0.5);
+}
+
+.title-checked{
+  color: #B9B9C3;
+}
+
+.checkmark-checked{
+  visibility: visible;
+}  
 
