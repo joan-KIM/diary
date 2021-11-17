@@ -35,5 +35,5 @@ export default function Task({id, title, state, onClick, onChange}) {
 Task.propTypes = {
     id: propTypes.number.isRequired,
     title: propTypes.string.isRequired,
-    state: propTypes.oneOf(['todo', 'done']).isRequired
+    state: propTypes.bool.isRequired
 }

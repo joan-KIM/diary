@@ -30,7 +30,5 @@ export default function InputTask({createTask}){
 }
 
 InputTask.propTypes = {
-    value: propTypes.string.isRequired,
-    changeHandler: propTypes.func.isRequired,
     createTask: propTypes.func.isRequired
 }

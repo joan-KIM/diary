@@ -17,7 +17,7 @@ TodoList.propTypes = {
         propTypes.shape({
             id: propTypes.number.isRequired,
             title: propTypes.string.isRequired,
-            state: propTypes.oneOf(['todo', 'done']).isRequired
+            state: propTypes.bool.isRequired
         })
     )
 }
