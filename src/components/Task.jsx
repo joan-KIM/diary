@@ -1,21 +1,22 @@
 import React, { useState } from "react";
 import {MdClear, MdCheck} from 'react-icons/md';
-import propTypes, { func } from 'prop-types';
+import propTypes from 'prop-types';
 import classNames from "classnames";
 
-export default function Task({id, title, state, onClick}) {
-    const [isChecked, setIsChecked] = useState(false);
+export default function Task({id, title, state, onClick, onChange}) {    
+    const [isChecked, setIsChecked] = useState(state);
 
     const clickHandler = () => {
         onClick(id);
     }
 
-    const toggleHandler = (event) => {
+    const toggleHandler = () => {
+        onChange(id);
         setIsChecked(!isChecked);
     }
 
     return(
-        <li className='task' key={id}>
+        <li className='task'>
             <label className={classNames('checkbox', {checked : isChecked})}>
                 <input 
                 type='checkbox' 

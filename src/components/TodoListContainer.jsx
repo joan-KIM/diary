@@ -5,20 +5,31 @@ import TodoList from "./TodoList";
 
 export default function TodoListContainer(){
     const [tasks, setTasks] = useState([]);
-
+    
     const createTask = (text) => {
         setTasks([
             ...tasks,
             {
                 id: Date.now(),
                 title: text,
-                state: 'todo'
+                state: false
             }
         ]);
     }
 
     function removeTask(id){
         const todolist = tasks.filter(task => task.id !== id);
+        setTasks(todolist);
+    }
+
+    function toggleHandler(id){
+        const todolist = tasks;
+        todolist.forEach(task => {
+            if(task.id === id){
+                task.state = !task.state;
+            }
+        })
+
         setTasks(todolist);
     }
 
@@ -29,7 +40,7 @@ export default function TodoListContainer(){
     return(
         <div className='todolist-container'>
             <InputTask createTask={createTask} />
-            <TodoList tasks={tasks} removeTask={removeTask} />
+            <TodoList tasks={tasks} removeTask={removeTask} toggleHandler={toggleHandler} />
         </div>
     )
 }
