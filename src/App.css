@@ -163,11 +163,11 @@ label{
   box-shadow: 0 2px 5px rgb(234, 84, 85, 0.5);
 }
 
-.title-checked{
+.checked + span{
   color: #B9B9C3;
 }
 
-.checkmark-checked{
+.checked > .checkmark {
   visibility: visible;
 }  
 
