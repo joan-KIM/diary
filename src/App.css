@@ -3,17 +3,28 @@ body{
   height: 100vh;
   background-color: #F8F8F8;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .App{
   display: flex;
+  flex-direction: row;
+}
+
+.monthly{
+  /* background-color: red; */
+  width: 52%;
+  height: 100vh;
+}
+
+.daily{
+  /* background-color: royalblue; */
+  width:48%;
 }
 
 .date-wrapper{
   font-weight: 600;
   color: #6E6B7B;
-  width: 13%;
 }
 
 .date{
@@ -29,7 +40,8 @@ body{
 
 .todolist-wrapper{
   height: 40%;
-  width: 380px;
+  width: 400px;
+  margin: 0 3.5em;
 }
 
 .todolist-header{
@@ -42,13 +54,13 @@ body{
 
 .todolist-container{
   background-color: #ffffff;
-  /* width: 30%; */
-  height: 85%;
+  box-sizing: content-box;
+  overflow: scroll;
+  height: 250px;
   border-radius: 0.5em;
   border: 1px solid #EBE9F1;
   color: #6E6B7B;
 }
-
 
 .input-container{
   box-sizing: border-box;
@@ -88,7 +100,7 @@ body{
   border-radius: 2em;
   background-color: #EA5455;
   color: #ffffff;
-  padding: 0 1.5em;
+  padding: 0 1.7em;
   transition: box-shadow .2s ease;
 }
 
@@ -128,8 +140,46 @@ body{
 .delete-task-btn{
   display: block;
   margin-left: auto;
-  /* cursor: pointer; */
+  cursor: pointer;
   font-size: 18px;
   color: #D8D6DE;
 }
+
+.delete-task-btn:hover{
+  color: #B9B9C3;
+  transition: color .3s ease;
+}
+
+.checkbox-input{
+  display: none;
+}
+
+label{
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #D8D6DE;
+  border-radius: 50%;
+  margin-right: 0.5em;
+  cursor: pointer;
+}
+
+.checkmark{
+  visibility: hidden;
+  color: #ffffff;
+  font-size: 1rem;
+}
+
+.checked{
+  background-color: #EA5455;
+  border: 1px solid #EA5455;
+  box-shadow: 0 2px 5px rgb(234, 84, 85, 0.5);
+}
+
+.checked + span{
+  color: #B9B9C3;
+}
+
+.checked > .checkmark {
+  visibility: visible;
+}  
 
