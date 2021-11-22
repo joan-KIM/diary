@@ -3,17 +3,28 @@ body{
   height: 100vh;
   background-color: #F8F8F8;
   font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .App{
   display: flex;
+  flex-direction: row;
+}
+
+.monthly{
+  /* background-color: red; */
+  width: 52%;
+  height: 100vh;
+}
+
+.daily{
+  /* background-color: royalblue; */
+  width:48%;
 }
 
 .date-wrapper{
   font-weight: 600;
   color: #6E6B7B;
-  width: 13%;
 }
 
 .date{
@@ -29,7 +40,8 @@ body{
 
 .todolist-wrapper{
   height: 40%;
-  width: 380px;
+  width: 400px;
+  margin: 0 3.5em;
 }
 
 .todolist-header{
@@ -42,13 +54,13 @@ body{
 
 .todolist-container{
   background-color: #ffffff;
-  /* width: 30%; */
-  height: 85%;
+  box-sizing: content-box;
+  overflow: scroll;
+  height: 250px;
   border-radius: 0.5em;
   border: 1px solid #EBE9F1;
   color: #6E6B7B;
 }
-
 
 .input-container{
   box-sizing: border-box;
@@ -88,7 +100,7 @@ body{
   border-radius: 2em;
   background-color: #EA5455;
   color: #ffffff;
-  padding: 0 1.5em;
+  padding: 0 1.7em;
   transition: box-shadow .2s ease;
 }
 

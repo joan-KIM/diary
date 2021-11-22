@@ -23,12 +23,15 @@ export default function TodoListContainer(){
     }
 
     function toggleHandler(id){
-        const todolist = tasks;
-        todolist.forEach(task => {
-            if(task.id === id){
-                task.state = !task.state;
+        const todolist = tasks.map(task => {
+            if (task.id === id) {
+              return {
+                ...task,
+                state: !task.state,
+              }
             }
-        })
+            return task;
+          });
 
         setTasks(todolist);
     }
