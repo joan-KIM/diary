@@ -1,23 +1,11 @@
 import React, { useState } from "react";
 import {MdModeEdit} from "react-icons/md"; 
 
-export default function Daily(){
+export default function Note({title, content, changeHandler, typing}){
     const [isEditing, setIsEditing] = useState(true);
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-
-    const changeHandler = (e) => {
-        setTitle(e.target.value);
-    }
-    
-    const typing = (e) => {
-        setContent(e.target.value);
-    }
     
     const toggleHandler = () => {
         setIsEditing(!isEditing);
-        setTitle(title);
-        setContent(content);
     }
 
     return (
@@ -34,9 +22,9 @@ export default function Daily(){
                         className='note-title' 
                         placeholder='Note Title' 
                         value={title} 
-                        onChange={changeHandler}
+                        onChange={e => changeHandler(e.target.value)}
                     />
-                    <textarea className='note' value={content} onChange={typing} ></textarea>
+                    <textarea className='note' value={content} onChange={e => typing(e)} ></textarea>
                 </>
                 :
                 <>
@@ -45,8 +33,7 @@ export default function Daily(){
                 </>
             }
            
-
-            
         </div> 
     )
 }
+
