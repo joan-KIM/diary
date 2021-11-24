@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {MdModeEdit} from "react-icons/md"; 
+import {MdModeEdit, MdDone} from "react-icons/md"; 
 
 export default function Note({title, content, changeHandler, typing}){
     const [isEditing, setIsEditing] = useState(true);
@@ -12,7 +12,7 @@ export default function Note({title, content, changeHandler, typing}){
         <div className='note-section' >
             <div className='note-header'>
                 <p className='note-header-title' >Note</p>
-                <MdModeEdit onClick={toggleHandler} className='edit-btn' />
+                { isEditing ? <MdDone onClick={toggleHandler} className='done-btn'/> : <MdModeEdit onClick={toggleHandler} className='edit-btn' /> }
             </div>
             {
                 isEditing
@@ -24,7 +24,7 @@ export default function Note({title, content, changeHandler, typing}){
                         value={title} 
                         onChange={e => changeHandler(e.target.value)}
                     />
-                    <textarea className='note' value={content} onChange={e => typing(e)} ></textarea>
+                    <textarea className='note' value={content} onChange={e => typing(e.target.value)} ></textarea>
                 </>
                 :
                 <>
