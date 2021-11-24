@@ -2,6 +2,7 @@ import React, {useState} from "react";
 import Date from "./Date";
 import TodoList from "./TodoList";
 import Note from "./Note";
+import { uuid } from "../utils/uuid";
 
 export default function Daily(){
     const [title, setTitle] = useState('');
@@ -20,7 +21,7 @@ export default function Daily(){
         setTasks([
             ...tasks,
             {
-                id: Date.now(),
+                id: uuid(),
                 title: text,
                 state: false
             }
