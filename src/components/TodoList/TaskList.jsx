@@ -2,7 +2,7 @@ import React from "react";
 import Task from "./Task";
 import propTypes from 'prop-types';
 
-export default function TodoList({tasks,removeTask, toggleHandler}){
+export default function TaskList({tasks,removeTask, toggleHandler}){
     const todolist = tasks.map(({id, title, state}) => <Task key={id} id={id} title={title} state={state} onClick={removeTask} onChange={toggleHandler} /> );
 
     return(
@@ -12,7 +12,7 @@ export default function TodoList({tasks,removeTask, toggleHandler}){
     )
 }
 
-TodoList.propTypes = {
+TaskList.propTypes = {
     tasks: propTypes.arrayOf(
         propTypes.shape({
             id: propTypes.number.isRequired,

@@ -224,22 +224,22 @@ label{
   outline: none;
 }
 
+.note-title:focus,
+.note:focus{
+  border:1px solid #EA5455;
+  box-shadow: 0px 0px 18px 0px #EBEBEB;
+}
+
 .note-title:focus::placeholder{
   padding-left: 0.4em;
   transition: padding-left 0.2s ease;
 }
+
 .note{
   margin: 1em auto;
   height: 60%;
   resize: none;
 } 
-
-.edited > .note-title,
-.edited > .note,
-.editing > .title,
-.editing > .content{
-  display: none;
-}
 
 .title{
   font-weight: 500;

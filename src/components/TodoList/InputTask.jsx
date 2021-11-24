@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import Button from "./Button";
+import AddTaskBtn from "./AddTaskBtn";
 import propTypes from "prop-types";
 
 export default function InputTask({createTask}){
@@ -23,7 +23,7 @@ export default function InputTask({createTask}){
                 value={text}
                 onChange={changeHandler}
             />
-            <Button title={'Add Task'} onClick={clickHandler} />
+            <AddTaskBtn title={'Add Task'} onClick={clickHandler} />
            
         </div>
     )

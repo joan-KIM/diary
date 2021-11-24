@@ -1,7 +1,6 @@
-import React from "react";
-import { useEffect, useState } from "react/cjs/react.development";
+import React, { useEffect, useState } from "react";
 import InputTask from "./InputTask";
-import TodoList from "./TodoList";
+import TaskList from "./TaskList";
 
 export default function TodoListContainer(){
     const [tasks, setTasks] = useState([]);
@@ -41,9 +40,13 @@ export default function TodoListContainer(){
     }, [tasks]);
 
     return(
-        <div className='todolist-container'>
-            <InputTask createTask={createTask} />
-            <TodoList tasks={tasks} removeTask={removeTask} toggleHandler={toggleHandler} />
+        <div className='todolist-wrapper'>
+            <p className='todolist-header'>To do List</p>
+            <div className='todolist-container'>
+                <InputTask createTask={createTask} />
+                <TaskList tasks={tasks} removeTask={removeTask} toggleHandler={toggleHandler} />
+            </div>
         </div>
+       
     )
 }
