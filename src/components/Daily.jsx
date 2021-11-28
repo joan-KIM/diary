@@ -1,13 +1,24 @@
-import React, {useState} from "react";
+import React, {useState, useEffect} from "react";
 import Date from "./Date";
 import TodoList from "./TodoList";
 import Note from "./Note";
 import { uuid } from "../utils/uuid";
+import { today } from "../utils/date";
 
-export default function Daily(){
-    const [title, setTitle] = useState('');
-    const [content, setContent] = useState('');
-    const [tasks, setTasks] = useState([]);
+export default function Daily({date, data, update}){
+    const [title, setTitle] = useState(data.note.title);
+    const [content, setContent] = useState(data.note.content);
+    const [tasks, setTasks] = useState(data.tasks);
+    const [curDate, setCurDate] = useState(date);
+
+    useEffect(() => {
+        setTasks(data.tasks);
+        setTitle(data.note.title);
+        setContent(data.note.content);
+        update(curDate, tasks, {title, content});
+        setCurDate(date);
+        console.log('useEffect in Daily')
+    }, [date])
 
     const changeHandler = (text) => {
         setTitle(text);
@@ -50,7 +61,7 @@ export default function Daily(){
     return (
         <div className='daily'>
             <div style={ {display:'flex', marginTop: '3em'} }>
-                <Date />
+                <Date date={date} />
                 <TodoList
                     tasks={tasks}
                     createTask={createTask}
@@ -69,3 +80,13 @@ export default function Daily(){
     )
 }
 
+Daily.defaultProps = {
+    date: today(),
+    data: {
+        tasks: [],
+        note: {
+            title:'',
+            content:''
+        }
+    }
+}

@@ -2,12 +2,12 @@ import React, { useState } from "react";
 import {MdModeEdit, MdDone} from "react-icons/md"; 
 
 export default function Note({title, content, changeHandler, typing}){
-    const [isEditing, setIsEditing] = useState(true);
+    const [isEditing, setIsEditing] = useState(!title);
     
     const toggleHandler = () => {
         setIsEditing(!isEditing);
     }
-
+    
     return (
         <div className='note-section' >
             <div className='note-header'>
