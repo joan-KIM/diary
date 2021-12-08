@@ -1,9 +1,12 @@
 import React from "react";
+import Category from "./Category";
+import Calendar from "./Calendar";
 
-export default function Monthly({changeHandler}) {
+export default function Monthly({date, changeHandler}) {
     return(
         <div className='monthly'>
-            <input type='datetime-local' onChange={e => changeHandler(e.target.value)}></input>
+            <Category />
+            <Calendar date={date} changeHandler={changeHandler} />
         </div>
     )
 }

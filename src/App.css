@@ -14,13 +14,14 @@ body{
 .monthly{
   width: 52%;
   height: 100vh;
+  display: flex;
 }
 
 .daily{
   width:48%;
 }
 
-.date-wrapper{
+.date-wrapper, .month, .year{
   font-weight: 600;
   color: #6E6B7B;
 }
@@ -34,6 +35,16 @@ body{
 .day{
   margin: 0;
   font-size: 2.5em;
+}
+
+.month{
+  margin: 0;
+  font-size: 3em;
+}
+
+.year{
+  margin: 0;
+  font-size: 1.5em;
 }
 
 .todolist-wrapper{
@@ -257,5 +268,23 @@ label{
   margin:0;
 }
 
+.category-wrapper{
+  background-color: aquamarine;
+  width: 40%;
+}
 
+.calendar-wrapper{
+  width: 60%;
+}
 
+.calendar-container{
+  background-color: #ffffff;
+  width:90%;
+  height: 90%;
+  border-radius: 0.5em;
+  margin: 2.5em auto;
+}
+
+.calendar-header{
+  padding: 1.5em 1em;
+}

@@ -17,7 +17,6 @@ export default function Daily({date, data, update}){
         setContent(data.note.content);
         update(curDate, tasks, {title, content});
         setCurDate(date);
-        console.log('useEffect in Daily')
     }, [date])
 
     const changeHandler = (text) => {

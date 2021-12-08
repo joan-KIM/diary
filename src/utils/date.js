@@ -26,3 +26,8 @@ export const enDay = (day) => {
     const dayList = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
     return dayList[day];
 }
+
+export const enMonth = (month) => {
+    const monthList = ['January','February',' March',' April','May','June','July','August',,'October','November','December'];
+    return monthList[month];
+}

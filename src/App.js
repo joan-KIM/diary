@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useState} from "react";
 import './App.css';
 import Monthly from "./components/Monthly";
 import Daily from "./components/Daily";
@@ -39,13 +39,10 @@ function App() {
       }
     });
   }
-  
-  useEffect(()=>{
-    console.log(data);
-  }, [data])
+
   return (
     <div className="App">
-      <Monthly changeHandler={changeHandler} />
+      <Monthly date={date} changeHandler={changeHandler} />
       <Daily date={date} data={data[date]} update={update} />
     </div>
   );
