@@ -26,6 +26,11 @@ body{
   color: #6E6B7B;
 }
 
+.date-wrapper{
+  /* background-color: blue; */
+  padding-top:3.5em;
+}
+
 .date{
   font-size: 4.5em;
   margin: 0;
@@ -48,9 +53,10 @@ body{
 }
 
 .todolist-wrapper{
-  height: 40%;
-  width: 400px;
-  margin: 0 2.5em;
+  /* background-color: aquamarine; */
+  width: 65%;
+  padding: 2.5em;
+  margin-left: auto;
 }
 
 .todolist-header{
@@ -65,7 +71,7 @@ body{
   background-color: #ffffff;
   box-sizing: content-box;
   overflow: scroll;
-  height: 250px;
+  height: 100%;
   border-radius: 0.5em;
   border: 1px solid #EBE9F1;
   color: #6E6B7B;
@@ -163,7 +169,7 @@ body{
   display: none;
 }
 
-label{
+.checkbox{
   width: 1rem;
   height: 1rem;
   border: 1px solid #D8D6DE;
@@ -193,11 +199,16 @@ label{
 }  
 
 .note-section{
+  height: 55%;
+  padding: 2.5em;
+  padding-left: 0;
+  box-sizing: border-box;
+}
+
+.note-container{
   background-color: #ffffff;
-  height: 350px;
-  margin-right:3.5em;
-  margin-top: 1.5em;
   border-radius: 0.5em;
+  height: 100%;
   box-shadow: 0 4px 24px 0 rgb(34, 41, 47, 0.1);
 }
 
@@ -268,23 +279,94 @@ label{
   margin:0;
 }
 
-.category-wrapper{
-  background-color: aquamarine;
-  width: 40%;
-}
-
-.calendar-wrapper{
+.calendar-section{
+  /* background-color: aquamarine; */
   width: 60%;
+  padding: 2.5em 3em;
+
 }
 
 .calendar-container{
   background-color: #ffffff;
-  width:90%;
-  height: 90%;
+  width:100%;
+  height: 100%;
   border-radius: 0.5em;
-  margin: 2.5em auto;
+  box-shadow: 0 4px 24px 0 rgb(34, 41, 47, 0.1);
 }
 
 .calendar-header{
   padding: 1.5em 1em;
 }
+
+.category-section{
+  /* background-color: chocolate; */
+  width: 40%;
+}
+
+.category-wrapper{
+  /* background-color: cornflowerblue; */
+  margin-top: 15em;
+  padding: 2.5em;
+  padding-right: 0;
+  font-weight: 600;
+}
+
+.category-header{
+  color: #b9b9c3;
+  display: flex;
+  font-size: 0.9em;
+  margin-bottom: 1.5em;
+}
+
+.add-calendar-btn{
+  font-size: 1.3em;
+  display: block;
+  margin-left: auto;
+  cursor: pointer;
+}
+
+.category-list{
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  /* background-color: orange; */
+  color: #4e5154;
+}
+
+.category-list li{
+  padding: 0.4em;
+  margin: 0;
+  display: flex;
+}
+
+.delete-category-btn{
+  font-size: 1.3em;
+  display: block;
+  margin-left: auto;
+  color:#B9B9C3;
+  visibility: hidden;
+}
+
+.bullet-styling{
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.bullet{
+  width: 0.75rem;
+  height: 0.75rem;
+  margin:auto 1em auto 0;
+}
+
+.bullet-default{
+  background-color: #7367f0;
+}
+
+.bullet-family{
+  background-color: #28c76f;
+}
+
+
+

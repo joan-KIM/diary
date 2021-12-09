@@ -7,7 +7,7 @@ export default function Calendar({date, changeHandler}){
     const month = enMonth(dateObj.getMonth());
 
     return (
-        <div className='calendar-wrapper' >
+        <div className='calendar-section' >
             <div className='calendar-container'>
                 <div className='calendar-header'>
                     <p className='month'>{month}</p>

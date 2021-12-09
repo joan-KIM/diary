@@ -59,7 +59,7 @@ export default function Daily({date, data, update}){
 
     return (
         <div className='daily'>
-            <div style={ {display:'flex', marginTop: '3em'} }>
+            <div style={ {display:'flex', height: '45%'} }>
                 <Date date={date} />
                 <TodoList
                     tasks={tasks}
