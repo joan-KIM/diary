@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import {MdCheck} from "react-icons/md";
+import classNames from "classnames";
 
 export default function CategoryInputGroup({addNewCalendar}){
     const [text, setText] = useState('');
@@ -10,10 +11,12 @@ export default function CategoryInputGroup({addNewCalendar}){
 
     const clickHandler = () => {
         addNewCalendar(text);
+        setText('');
     }
 
     return(
         <div className="category-input-wrapper">
+            <label className={classNames('bullet-styling', 'bullet', 'bullet-default', 'bullet-input')} />
             <div className='category-input-group'>
                 <input 
                     type='text' 

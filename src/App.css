@@ -377,10 +377,17 @@ body{
   margin:auto 0.7em auto 0;
 }
 
-.category-input-group{
+.category-input-wrapper{
   display: flex;
+  /* background-color: salmon; */
+  padding-left: 0.4em;
+}
+
+.category-input-group{
   border-radius: 0.4em;
-  margin-top: 1em;
+  /* background-color: sandybrown; */
+  display: flex;
+  width: 88%;
 }
 
 .category-input-group:focus-within,

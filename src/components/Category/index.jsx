@@ -17,7 +17,8 @@ export default function Category(){
             {
                 'name' : text
             }
-        ])
+        ]);
+        setIsShown(false);
     }
 
     return (
