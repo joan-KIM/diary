@@ -5,10 +5,19 @@ import CategoryList from "./CategoryList";
 
 export default function Category(){
     const [isShown, setIsShown] = useState(false);
-    const [labels, setLabels] = useState([{'name':'default'}, {'name':'family'}]);
+    const [labels, setLabels] = useState([{'name':'Personal(default)'}, {'name':'Family'}, {'name':'Business'}]);
 
     const toggleHandler = (e) => {
-        setIsShown(!isShown);
+        setIsShown(true);
+    }
+
+    const addNewCalendar = (text) => {
+        setLabels([
+            ...labels,
+            {
+                'name' : text
+            }
+        ])
     }
 
     return (
@@ -21,7 +30,7 @@ export default function Category(){
 
                 <CategoryList labels={labels} />
 
-                { isShown && <CategoryInputGroup /> }
+                { isShown && <CategoryInputGroup addNewCalendar={addNewCalendar} /> }
                 
             </div>
         </div>
