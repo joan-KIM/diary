@@ -318,12 +318,13 @@ body{
   margin-bottom: 1.5em;
 }
 
-.add-calendar-btn{
+.show-inputgroup-btn{
   font-size: 1.3em;
   display: block;
   margin-left: auto;
   cursor: pointer;
 }
+
 
 .category-list{
   margin: 0;
@@ -343,8 +344,12 @@ body{
   font-size: 1.3em;
   display: block;
   margin-left: auto;
-  color:#B9B9C3;
-  visibility: hidden;
+  color:#F8F8F8;
+}
+
+.delete-category-btn:hover{
+  color: #B9B9C3;
+  cursor: pointer;
 }
 
 .bullet-styling{
@@ -368,5 +373,66 @@ body{
   background-color: #28c76f;
 }
 
+.bullet-input{
+  background-color: #EA5455;
+  margin:auto 0.7em auto 0;
+}
 
+.category-input-group{
+  display: flex;
+  /* border-radius: 0.4em; */
+}
 
+.category-input-group:focus-within,
+.category-input-group:active{
+  box-shadow: 0px 0px 10px 0px  rgb(34, 41, 47, 0.1);
+}
+
+.category-input-group:active > .category-input{
+  border:1px solid #EA5455;
+  border-style: solid none solid solid;
+}
+
+.category-input{
+  padding: 0.4em;
+  border: 1px solid #EBE9F1;
+  border-style: solid none solid solid;
+  border-radius: 0.4em;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  width: 80%;
+  font-family: 'Montserrat', sans-serif;
+  outline: none;
+}
+
+.category-input:focus::placeholder{
+  padding-left: 0.4em;
+  transition: padding-left 0.2s ease;
+}
+
+.category-input:focus{
+  border:1px solid #EA5455;
+  border-style: solid none solid solid;
+}
+
+.add-calendar-btn{
+  background-color: #FFFFFF;
+  border-radius: 0.4em;
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+  width: 20%;
+  margin-left: auto;
+  border:  1.5px solid #EA5455;
+}
+
+.add-calendar-btn:hover{
+  background-color: rgb(234, 84, 85, 0.1);
+}
+
+.add-btn-mark{
+  font-size: 1.3em;
+  cursor: pointer;
+  color: #EA5455;
+  display: block;
+  margin: 0.2em auto;
+}

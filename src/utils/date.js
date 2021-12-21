@@ -28,6 +28,6 @@ export const enDay = (day) => {
 }
 
 export const enMonth = (month) => {
-    const monthList = ['January','February',' March',' April','May','June','July','August',,'October','November','December'];
+    const monthList = ['January','February',' March',' April','May','June','July','August','September','October','November','December'];
     return monthList[month];
 }
