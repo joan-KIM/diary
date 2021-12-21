@@ -1,10 +1,11 @@
 import React, { useState } from "react";
-import { MdAdd, MdClear } from "react-icons/md";
-import classNames from "classnames";
+import { MdAdd } from "react-icons/md";
 import CategoryInputGroup from "./CategoryInputGroup";
+import CategoryList from "./CategoryList";
 
 export default function Category(){
     const [isShown, setIsShown] = useState(false);
+    const [labels, setLabels] = useState([{'name':'default'}, {'name':'family'}]);
 
     const toggleHandler = (e) => {
         setIsShown(!isShown);
@@ -17,18 +18,8 @@ export default function Category(){
                     <p style={{margin: '0'}}>CALENDARS</p>
                     <MdAdd className='show-inputgroup-btn' onClick={e => toggleHandler(e)} />
                 </div>
-                
-                <ul className='category-list' >
-                    <li>
-                        <label className={classNames('bullet-styling', 'bullet', 'bullet-default')} />
-                        Personal(default)
-                    </li>
-                    <li>    
-                        <label className={classNames('bullet-styling', 'bullet', 'bullet-family')} />
-                        Family
-                        <MdClear className='delete-category-btn' />
-                    </li>
-                </ul>
+
+                <CategoryList labels={labels} />
 
                 { isShown && <CategoryInputGroup /> }
                 

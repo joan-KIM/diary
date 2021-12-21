@@ -325,7 +325,6 @@ body{
   cursor: pointer;
 }
 
-
 .category-list{
   margin: 0;
   padding: 0;
@@ -380,7 +379,8 @@ body{
 
 .category-input-group{
   display: flex;
-  /* border-radius: 0.4em; */
+  border-radius: 0.4em;
+  margin-top: 1em;
 }
 
 .category-input-group:focus-within,
