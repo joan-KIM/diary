@@ -24,8 +24,13 @@ export default function Category(){
     const [labels, setLabels] = useState(initialLabels);
 
     const toggleHandler = (e) => {
-        setIsShown(true);
+        if(labels.length == 6) {
+            return;
+        }else{
+            setIsShown(true);
+        }
     }
+
 
     const addNewCalendar = (text) => {
         setLabels([

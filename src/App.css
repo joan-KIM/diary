@@ -329,7 +329,6 @@ body{
   margin: 0;
   padding: 0;
   list-style: none;
-  /* background-color: orange; */
   color: #4e5154;
 }
 
@@ -343,6 +342,10 @@ body{
   background-color: #ffffff;
 }
 
+.category-label:hover > .delete-category-btn{
+  color: #B9B9C3;
+}
+
 .delete-category-btn{
   font-size: 1.3em;
   display: block;
@@ -351,7 +354,6 @@ body{
 }
 
 .delete-category-btn:hover{
-  color: #B9B9C3;
   cursor: pointer;
 }
 
@@ -374,13 +376,11 @@ body{
 
 .category-input-wrapper{
   display: flex;
-  /* background-color: salmon; */
   padding-left: 0.4em;
 }
 
 .category-input-group{
   border-radius: 0.4em;
-  /* background-color: sandybrown; */
   display: flex;
   width: 88%;
 }
