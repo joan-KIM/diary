@@ -38,6 +38,11 @@ export default function Category(){
         setIsShown(false);
     }
 
+    const removeCalendar = (color) => {
+        const removedLabels = labels.filter(label => label.color !== color);
+        setLabels(removedLabels);
+    }
+
     return (
         <div className='category-section' >
             <div className='category-wrapper' >
@@ -46,7 +51,7 @@ export default function Category(){
                     <MdAdd className='show-inputgroup-btn' onClick={e => toggleHandler(e)} />
                 </div>
 
-                <CategoryList labels={labels} />
+                <CategoryList labels={labels} removeCalendar={removeCalendar} />
 
                 { isShown && <CategoryInputGroup addNewCalendar={addNewCalendar} bulletColor={pickColor(labels)} /> }
                 

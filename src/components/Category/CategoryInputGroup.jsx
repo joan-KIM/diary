@@ -20,7 +20,7 @@ export default function CategoryInputGroup({addNewCalendar, bulletColor}){
         <div className="category-input-wrapper">
             <label 
                 className={classNames('bullet-styling', 'bullet')} 
-                style={ {backgroundColor: bulletColor} }
+                style={ {backgroundColor: bulletColor, margin:'auto 0.7em auto 0'} }
             />
             <div className='category-input-group'>
                 <input 

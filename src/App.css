@@ -372,11 +372,6 @@ body{
   background-color: #7367f0;
 }
 
-.bullet-input{
-  background-color: #EA5455;
-  margin:auto 0.7em auto 0;
-}
-
 .category-input-wrapper{
   display: flex;
   /* background-color: salmon; */
