@@ -333,10 +333,14 @@ body{
   color: #4e5154;
 }
 
-.category-list li{
+.category-label{
   padding: 0.4em;
   margin: 0;
   display: flex;
+}
+
+.category-label:hover{
+  background-color: #ffffff;
 }
 
 .delete-category-btn{
@@ -366,10 +370,6 @@ body{
 
 .bullet-default{
   background-color: #7367f0;
-}
-
-.bullet-family{
-  background-color: #28c76f;
 }
 
 .bullet-input{
