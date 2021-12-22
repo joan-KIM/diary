@@ -306,7 +306,7 @@ body{
 .category-wrapper{
   /* background-color: cornflowerblue; */
   margin-top: 15em;
-  padding: 2.5em;
+  padding: 1.8em;
   padding-right: 0;
   font-weight: 600;
 }
@@ -316,6 +316,7 @@ body{
   display: flex;
   font-size: 0.9em;
   margin-bottom: 1.5em;
+  margin-left: 1em;
 }
 
 .show-inputgroup-btn{
@@ -333,13 +334,14 @@ body{
 }
 
 .category-label{
-  padding: 0.4em;
+  padding: 0.45em;
   margin: 0;
   display: flex;
 }
 
 .category-label:hover{
   background-color: #ffffff;
+  border-radius: 0.4em;
 }
 
 .category-label:hover > .delete-category-btn{
@@ -367,42 +369,39 @@ body{
 .bullet{
   width: 0.75rem;
   height: 0.75rem;
-  margin:auto 1em auto 0;
+  margin:auto 1em auto 0.4em;
 }
 
 .bullet-default{
   background-color: #7367f0;
 }
 
-.category-input-wrapper{
-  display: flex;
-  padding-left: 0.4em;
-}
-
 .category-input-group{
   border-radius: 0.4em;
   display: flex;
-  width: 88%;
 }
 
-.category-input-group:focus-within,
-.category-input-group:active{
-  box-shadow: 0px 0px 10px 0px  rgb(34, 41, 47, 0.1);
-}
-
-.category-input-group:active > .category-input{
-  border:1px solid #EA5455;
-  border-style: solid none solid solid;
-}
-
-.category-input{
-  padding: 0.4em;
+.bullet-wrapper{
+  background-color: #ffffff;
   border: 1px solid #EBE9F1;
   border-style: solid none solid solid;
   border-radius: 0.4em;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  width: 80%;
+  display: flex;
+  padding-left: 0.4em;
+}
+
+.category-input-group:active ,
+.category-input-group:focus-within{
+  box-shadow: 0px 0px 10px 0px  rgba(146, 146, 146, 0.1);
+}
+
+.category-input{
+  padding: 0.55em;
+  border: 1px solid #EBE9F1;
+  border-style: solid none solid solid;
+  width: 70%;
   font-family: 'Montserrat', sans-serif;
   outline: none;
 }
@@ -412,29 +411,29 @@ body{
   transition: padding-left 0.2s ease;
 }
 
-.category-input:focus{
-  border:1px solid #EA5455;
-  border-style: solid none solid solid;
-}
-
 .add-calendar-btn{
-  background-color: #FFFFFF;
+  background-color: #ffffff;
+  border:  1px solid #EBE9F1;
   border-radius: 0.4em;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   width: 20%;
   margin-left: auto;
-  border:  1.5px solid #EA5455;
+  display: flex;
 }
 
 .add-calendar-btn:hover{
-  background-color: rgb(234, 84, 85, 0.1);
+  border:  1px solid #EA5455;
 }
 
 .add-btn-mark{
   font-size: 1.3em;
   cursor: pointer;
+  color: #EBE9F1;
+  margin: auto;
+  display: inline-block;
+}
+
+.add-calendar-btn:hover > .add-btn-mark{
   color: #EA5455;
-  display: block;
-  margin: 0.2em auto;
 }

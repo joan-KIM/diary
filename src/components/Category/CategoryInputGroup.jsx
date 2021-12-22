@@ -17,22 +17,22 @@ export default function CategoryInputGroup({addNewCalendar, bulletColor}){
     }
 
     return(
-        <div className="category-input-wrapper">
-            <label 
-                className={classNames('bullet-styling', 'bullet')} 
-                style={ {backgroundColor: bulletColor, margin:'auto 0.7em auto 0'} }
-            />
-            <div className='category-input-group'>
-                <input 
-                    type='text' 
-                    className='category-input' 
-                    placeholder='New Calendar' 
-                    value={text}
-                    onChange={e => changeHandler(e.target.value)}    
+        <div className='category-input-group'>
+            <div className={classNames('bullet-wrapper', 'inputgroup-border-styling')}>
+                <label 
+                    className={classNames('bullet-styling', 'bullet')} 
+                    style={ {backgroundColor: bulletColor, margin:'auto 0.8em auto 0.4em'} }
                 />
-                <div className='add-calendar-btn' onClick={clickHandler} >
-                    <MdCheck className='add-btn-mark' />
-                </div>
+            </div>          
+            <input 
+                type='text'
+                className={classNames('category-input', 'inputgroup-border-styling')}
+                placeholder='New Calendar' 
+                value={text}
+                onChange={e => changeHandler(e.target.value)}    
+            />
+            <div className={classNames('add-calendar-btn', 'inputgroup-border-styling')} onClick={clickHandler} >
+                <MdCheck className='add-btn-mark' />
             </div>
         </div>
     )
