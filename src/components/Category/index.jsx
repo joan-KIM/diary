@@ -53,7 +53,7 @@ export default function Category(){
             <div className='category-wrapper' >
                 <div className='category-header' >
                     <p style={{margin: '0'}}>CALENDARS</p>
-                    <MdAdd className='show-inputgroup-btn' onClick={e => toggleHandler(e)} />
+                    { labels.length < 6 && <MdAdd className='show-inputgroup-btn' onClick={e => toggleHandler(e)} /> }
                 </div>
 
                 <CategoryList labels={labels} removeCalendar={removeCalendar} />
