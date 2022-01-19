@@ -3,20 +3,12 @@ import CategoryLabel from "./CategoryLabel";
 import classNames from "classnames";
 
 export default function CategoryList({labels, removeCalendar}) {
+
     console.log(labels);
     const labelList = labels.map( label => {
-        if (label.name === 'Personal'){
             return (
-                <li className='category-label' key='#7367f0' >    
-                    <label className={classNames('bullet-styling', 'bullet', 'bullet-default')} />
-                    Personal
-                </li>
+                <CategoryLabel name={label.name} bulletColor={label.color} removeCalendar={removeCalendar} isShown={labels.length > 1} />
             )
-        } else {
-            return (
-                <CategoryLabel name={label.name} bulletColor={label.color} removeCalendar={removeCalendar} />
-            )
-        }
     });
 
     return(

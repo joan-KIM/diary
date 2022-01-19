@@ -2,7 +2,7 @@ import React from "react";
 import classNames from "classnames";
 import { MdClear } from "react-icons/md";
 
-export default function CategoryLabel({name, bulletColor, removeCalendar}) {
+export default function CategoryLabel({name, bulletColor, removeCalendar, isShown}) {
     return(
         <li key={bulletColor} className='category-label' >
             <label 
@@ -10,7 +10,7 @@ export default function CategoryLabel({name, bulletColor, removeCalendar}) {
                 style={ { backgroundColor: bulletColor } }
             />
             {name}
-            <MdClear className='delete-category-btn' onClick={e => removeCalendar(bulletColor)} />
+            { isShown && <MdClear className='delete-category-btn' onClick={e => removeCalendar(bulletColor)} />}
         </li>
     )
 }

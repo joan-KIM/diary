@@ -1,4 +1,4 @@
-const labelColorList = ['#28c76f', '#ff9f43','#ea5455','#00cfe8','#ffc107'];
+const labelColorList = ['#28c76f', '#ff9f43','#ea5455','#00cfe8','#ffc107', '#7367f0'];
 // const labelColorList = ['red', 'orange','yellow', 'blue', 'green'];
 
 export const pickColor = (labelList) => {
