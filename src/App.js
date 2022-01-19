@@ -27,7 +27,6 @@ function App() {
 
   const changeHandler = (value) => {
     setDate(toDate(new Date(value)));
-    console.log(date);
   }
 
   const update = (date, tasks, note) => {

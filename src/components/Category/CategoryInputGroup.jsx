@@ -4,8 +4,6 @@ import classNames from "classnames";
 
 export default function CategoryInputGroup({addNewCalendar, bulletColor}){
     const [text, setText] = useState('');
-
-    console.log(bulletColor)
     
     const changeHandler = (text) => {
         setText(text);
