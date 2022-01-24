@@ -295,8 +295,30 @@ body{
 }
 
 .calendar-header{
-  padding: 1.5em 1em;
+  padding: 1.2em 1.5em;
+  /* background-color: #7367f0; */
+  display: flex;
 }
+
+.button-group{
+  margin-left: auto;
+}
+
+.calendar{
+  width: 90%;
+  margin: 0 auto;
+  color: #6E6B7B;
+  text-align: center;
+}
+
+.row-day{
+  color: #B9B9C3;
+}
+
+.prev-month, .next-month{
+  color: #EEE9F1;
+}
+
 
 .category-section{
   /* background-color: chocolate; */
@@ -437,3 +459,6 @@ body{
 .add-calendar-btn:hover > .add-btn-mark{
   color: #EA5455;
 }
+
+
+
