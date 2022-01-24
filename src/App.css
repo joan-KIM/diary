@@ -313,6 +313,8 @@ body{
 
 .row-day{
   color: #B9B9C3;
+  font-size: 11px;
+  font-weight: 500;
 }
 
 .prev-month, .next-month{
