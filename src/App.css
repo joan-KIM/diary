@@ -311,6 +311,23 @@ body{
   text-align: center;
 }
 
+.calendar td {
+  cursor: pointer;
+}
+.calendar .selected {
+  position: relative;
+}
+.calendar .selected::before {
+  content: '';
+  background: rgb(0, 255, 234);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 2ch;
+  height: 2ch;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
 .row-day{
   color: #B9B9C3;
   font-size: 11px;
