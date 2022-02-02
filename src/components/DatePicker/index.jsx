@@ -1,26 +1,57 @@
 import React from "react";
-import {toDateObj, enMonth} from '../../utils/date'
+import Week from "./Week";
+import {toDateObj, enMonth, toDate, today} from '../../utils/date';
+import { DAY_LIST } from "./constants";
 
-export default function DatePicker({date, changeHandler}){
-    const dateObj = toDateObj(date);
+export default function DatePicker({selectedDate, changeHandler}){
+    const dateObj = toDateObj(selectedDate);
     const year = dateObj.getFullYear();
-    const month = enMonth(dateObj.getMonth());
+    const month = dateObj.getMonth();
+
+    // 선택된 날짜가 포함된 달의 첫째 날(의 요일), 마지막 날(의 요일), 마지막 날짜
+    const firstDay = new Date(year, month, 1).getDay();
+    const lastDay = new Date(year, month+1, 0).getDay();
+    const lastDate = new Date(year, month+1, 0).getDate();
+
+    const weekNum = (lastDate > 28 ? 5 : 4) + (lastDay < firstDay ? 1 : 0);
+
+    // Array.from(유사배열객체(length 속성 가짐), 반복가능한 객체)
+    const weeks = Array.from({length : weekNum}, (_, week) => {
+        const isFirstWeek = week === 0;
+        // 첫째 주에 이전 달 날짜가 포함된 경우, 아닌 경우
+        const sundayOfWeek = isFirstWeek 
+            ? new Date(year, month, 0).getDate() - firstDay + 1
+            : 1 + (7 - firstDay) + 7 * (week - 1);
+        
+        return <Week 
+            isFirstWeek={isFirstWeek}
+            sundayOfWeek={sundayOfWeek}
+            firstDay={firstDay}
+            lastDay={lastDay}
+            lastDate={lastDate}
+            year={year}
+            month={month}
+            selectedDate={selectedDate}
+            onClick={changeHandler}
+            />
+    })
+
 
     return (
         <>
             <div className='calendar-header'>
                 <div>
-                    <p className='month'>{month}</p>
+                    <p className='month'>{enMonth(month)}</p>
                     <p className='year'>{year}</p>
                 </div>
                 <div className='button-group'>
-                    <button className='prev-btn'>
+                    <button className='prev-btn' onClick={() => changeHandler(toDate(new Date(year, month-1, dateObj.getDate())))}>
                     이전
                     </button>
-                    <button className='today-btn'>
+                    <button className='today-btn' onClick={() => changeHandler(today())}>
                     오늘
                     </button>
-                    <button className='next-btn'>
+                    <button className='next-btn' onClick={() => changeHandler(toDate(new Date(year, month+1, dateObj.getDate())))}>
                     다음
                     </button>
                 </div>
@@ -28,70 +59,10 @@ export default function DatePicker({date, changeHandler}){
 
             <table className='calendar'>
                 <tr className='row-day'>
-                    <td>Sun</td>
-                    <td>Mon</td>
-                    <td>Tue</td>
-                    <td>Wed</td>
-                    <td>Thu</td>
-                    <td>Fri</td>
-                    <td>Sat</td>
+                    {DAY_LIST.map(day => <td>{day}</td>)}
                 </tr>
-                <tr>
-                    <td className='prev-month'>26</td>
-                    <td className='prev-month'>27</td>
-                    <td className='prev-month'>28</td>
-                    <td className='prev-month'>29</td>
-                    <td className='prev-month'>30</td>
-                    <td className='prev-month'>31</td>
-                    <td>1</td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>4</td>
-                    <td>5</td>
-                    <td>6</td>
-                    <td>7</td>
-                    <td>8</td>
-                </tr>
-                <tr>
-                    <td>9</td>
-                    <td>10</td>
-                    <td>11</td>
-                    <td>12</td>
-                    <td>13</td>
-                    <td>14</td>
-                    <td>15</td>
-                </tr>
-                <tr>
-                    <td>16</td>
-                    <td>17</td>
-                    <td>18</td>
-                    <td>19</td>
-                    <td>20</td>
-                    <td>21</td>
-                    <td>22</td>
-                </tr>
-                <tr>
-                    <td>23</td>
-                    <td>24</td>
-                    <td>25</td>
-                    <td>26</td>
-                    <td>27</td>
-                    <td>28</td>
-                    <td>29</td>
-                </tr>
-                <tr>
-                    <td>30</td>
-                    <td>31</td>
-                    <td className='next-month'>1</td>
-                    <td className='next-month'>2</td>
-                    <td className='next-month'>3</td>
-                    <td className='next-month'>4</td>
-                    <td className='next-month'>5</td>
-                </tr>
+                {weeks}
             </table>
-                {/* <input type='datetime-local' onChange={e => changeHandler(e.target.value)}></input> */}
         </>
     )
 }

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import './App.css';
 import Monthly from "./components/Monthly";
 import Daily from "./components/Daily";
-import {today, toDate} from "./utils/date"
+import {today} from "./utils/date"
 import { uuid } from "./utils/uuid";
 
 function App() {
@@ -26,7 +26,7 @@ function App() {
   const [date, setDate] = useState(today());
 
   const changeHandler = (value) => {
-    setDate(toDate(new Date(value)));
+    setDate(value);
   }
 
   const update = (date, tasks, note) => {
