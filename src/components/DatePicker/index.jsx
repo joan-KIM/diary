@@ -1,5 +1,6 @@
 import React from "react";
 import Week from "./Week";
+import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import {toDateObj, enMonth, toDate, today} from '../../utils/date';
 import { DAY_LIST } from "./constants";
 
@@ -40,20 +41,22 @@ export default function DatePicker({selectedDate, changeHandler}){
     return (
         <>
             <div className='calendar-header'>
-                <div>
+                <div >
                     <p className='month'>{enMonth(month)}</p>
                     <p className='year'>{year}</p>
                 </div>
-                <div className='button-group'>
-                    <button className='prev-btn' onClick={() => changeHandler(toDate(new Date(year, month-1, dateObj.getDate())))}>
-                    이전
-                    </button>
-                    <button className='today-btn' onClick={() => changeHandler(today())}>
-                    오늘
-                    </button>
-                    <button className='next-btn' onClick={() => changeHandler(toDate(new Date(year, month+1, dateObj.getDate())))}>
-                    다음
-                    </button>
+                <div className='btn-group-wrapper'>
+                    <div className='button-group'>
+                        <button className='prev-btn' onClick={() => changeHandler(toDate(new Date(year, month-1, dateObj.getDate())))}>
+                            <MdKeyboardArrowLeft className='arrow' />
+                        </button>
+                        <button className='today-btn' onClick={() => changeHandler(today())}>
+                            Today
+                        </button>
+                        <button className='next-btn' onClick={() => changeHandler(toDate(new Date(year, month+1, dateObj.getDate())))}>
+                            <MdKeyboardArrowRight className='arrow'/>
+                        </button>
+                    </div>
                 </div>
             </div>
 

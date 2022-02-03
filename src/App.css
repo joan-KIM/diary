@@ -44,12 +44,12 @@ body{
 
 .month{
   margin: 0;
-  font-size: 3em;
+  font-size: 2.8em;
 }
 
 .year{
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.4em;
 }
 
 .todolist-wrapper{
@@ -280,10 +280,8 @@ body{
 }
 
 .calendar-section{
-  /* background-color: aquamarine; */
   width: 60%;
   padding: 2.5em 3em;
-
 }
 
 .calendar-container{
@@ -295,13 +293,60 @@ body{
 }
 
 .calendar-header{
-  padding: 1.2em 1.5em;
-  /* background-color: #7367f0; */
+  padding: 1.7em 1.5em 1.2em 1.5em;
   display: flex;
+  /* background-color: aquamarine; */
+}
+
+.btn-group-wrapper{
+  margin-left: auto;
 }
 
 .button-group{
-  margin-left: auto;
+  display: flex;
+  margin-top: 0.5em;
+}
+
+.prev-btn, .today-btn, .next-btn{
+  background-color: #ffffff;
+  color: #6E6B7B;
+  font-family: 'Montserrat';
+  font-weight: 600;
+  border: 0.7px solid #EBE9F1;
+  cursor: pointer;
+}
+
+.prev-btn:hover,
+.next-btn:hover,
+.today-btn:hover{
+  background-color: #ebe9f17e;
+}
+
+.prev-btn, .next-btn{
+  font-size: 1.2em;
+  border-radius: 0.3em;
+  padding: 0;
+}
+
+.prev-btn{
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.next-btn{
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+}
+
+.today-btn{
+  font-size: 0.6em;
+  padding: 0.2em 1.6em;
+  border-style: solid none solid none;
+}
+
+.arrow{
+  display: block;
+  padding: 0.1em;
 }
 
 .calendar{
