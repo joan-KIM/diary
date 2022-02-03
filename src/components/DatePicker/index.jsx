@@ -61,8 +61,8 @@ export default function DatePicker({selectedDate, changeHandler}){
             </div>
 
             <table className='calendar'>
-                <tr className='row-day'>
-                    {DAY_LIST.map(day => <td>{day}</td>)}
+                <tr>
+                    {DAY_LIST.map(day => <td className='row-day'>{day}</td>)}
                 </tr>
                 {weeks}
             </table>

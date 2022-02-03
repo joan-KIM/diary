@@ -295,7 +295,6 @@ body{
 .calendar-header{
   padding: 1.7em 1.5em 1.2em 1.5em;
   display: flex;
-  /* background-color: aquamarine; */
 }
 
 .btn-group-wrapper{
@@ -354,18 +353,47 @@ body{
   margin: 0 auto;
   color: #6E6B7B;
   text-align: center;
+  border-spacing: 0.4em;
+  table-layout: fixed;
 }
 
 .row-day{
   color: #B9B9C3;
   font-size: 11px;
   font-weight: 500;
+  padding-bottom: 0.85em;
+}
+
+.circle-wrapper{
+  height: 35px;
+}
+
+.circle{
+  width: 33px;
+  height: 33px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  border-radius: 2em;
+  cursor: pointer;
+}
+
+.today{
+  color: #EA5455;
+  border: 1px solid #EA5455;
+}
+
+.selected{
+  background-color: #EA5455;
+  border: 1px solid #EA5455;
+  color: #ffffff;
+  font-weight:500;
 }
 
 .prev-month, .next-month{
   color: #EEE9F1;
 }
-
 
 .category-section{
   /* background-color: chocolate; */
