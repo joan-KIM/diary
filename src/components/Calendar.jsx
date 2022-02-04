@@ -1,6 +1,5 @@
 import React from "react";
 import DatePicker from "./DatePicker";
-import {MdAdd} from "react-icons/md";
 
 export default function Calendar({date, changeHandler}){
     return (
@@ -8,7 +7,7 @@ export default function Calendar({date, changeHandler}){
             <div className='calendar-container'>
                <DatePicker selectedDate={date} changeHandler={changeHandler}></DatePicker>
 
-               <button>Add Event<MdAdd /></button>
+               <button className='add-event-btn'>Add Event</button>
                
                <ul className='timeline'>
                     <li className='timeline-item'>
@@ -18,6 +17,14 @@ export default function Calendar({date, changeHandler}){
                             <span className='event-time'>13:30 - 14:30</span>
                         </div>
                         <p className='event-place'>아름다운 이치과의원</p>
+                    </li>
+                    <li className='timeline-item'>
+                        <div className='timeline-point'></div>
+                        <div className='event-wrapper'>
+                            <span className='event-title'>아르바이트</span>
+                            <span className='event-time'>17:00 - 22:00</span>
+                        </div>
+                        <p className='event-place'>하삼동커피 기장떙땡점</p>
                     </li>
                     <li className='timeline-item'>
                         <div className='timeline-point'></div>
