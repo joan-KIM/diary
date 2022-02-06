@@ -675,7 +675,7 @@ body{
   padding-bottom: 0.3em;
 }
 
-.event-inputbox-wrapper{
+.event-inputbox-wrapper, .timepicker-wrapper{
   background-color: #ffffff;
   padding: 0.5em;
   border-radius: 0.25em;
@@ -729,4 +729,32 @@ body{
   border-radius: 50%;
   background-color: #7367f0;
   margin: 0.2em 1em;
+}
+
+.timepicker-group{
+  display: flex;
+  align-items: center;
+}
+
+.timepicker-group span{
+  margin: 1em;
+  color:#6E6B7B;
+}
+
+.timepicker-group input{
+  width: 25%;
+  color: #6E6B7B;
+  text-align: center;
+}
+
+.time-select-btn{
+  width: 20%;
+  color: #D8D6DE;
+  font-size: 1.5em;
+}
+
+.timepicker-wrapper{
+  display: flex;
+  justify-content: center;
+  align-content: center;
 }

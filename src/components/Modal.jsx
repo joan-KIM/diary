@@ -1,5 +1,5 @@
 import React from "react";
-import { MdOutlineDelete } from "react-icons/md";
+import { MdOutlineDelete, MdUnfoldMore } from "react-icons/md";
 import classNames from "classnames";
 
 export default function Modal(){
@@ -21,8 +21,20 @@ export default function Modal(){
 
                     <div className="event-input-group">
                         <label for="event-time">Time</label>
-                        <div className="event-inputbox-wrapper">
-                            <input type="text" id="event-time"></input>
+                        <div className="timepicker-group">
+                            <div className="timepicker-wrapper">
+                                <input value="00"/>
+                                <MdUnfoldMore className="time-select-btn" />
+                                <input value="00"/>
+                                <MdUnfoldMore className="time-select-btn" />
+                            </div>
+                            <span>~</span>
+                            <div className="timepicker-wrapper">
+                                <input value="00" />
+                                <MdUnfoldMore className="time-select-btn" />
+                                <input value="00" />
+                                <MdUnfoldMore className="time-select-btn" />
+                            </div>
                         </div>
                     </div>
 
