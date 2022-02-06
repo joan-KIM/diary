@@ -11,10 +11,36 @@ export default function Modal(){
                 </div>
 
                 <form className="md-input-wrapper">
-                    
+                    <div className="event-input-group">
+                        <label for="event-title">Title</label>
+                        <div>
+                            <input type="text" id="event-title"></input>
+                        </div>
+                    </div>
 
+                    <div className="event-input-group">
+                        <label for="event-time">Time</label>
+                        <div>
+                            <input type="text" id="event-time"></input>
+                        </div>
+                    </div>
 
+                    <div className="event-input-group">
+                        <label for="event-place">Place</label>
+                        <div>
+                            <input type="text" id="event-place"></input>
+                        </div>
+                    </div>
+
+                    <div className="event-input-group">
+                        <label for="event-category">Calendar</label>
+                        <div>
+                            <input type="text" id="event-category"></input>
+                        </div>
+                    </div>
                 </form>
+
+                
             </div>
         </div>
     )

@@ -633,7 +633,7 @@ body{
 .modal{
   z-index: 10;
   background-color: #ffffff;
-  width: 350px;
+  width: 340px;
   height: 400px;
   margin: auto;
   border-radius: 0.5em;
@@ -650,6 +650,7 @@ body{
   font-size: 1.1em;
   padding: 0.7em 1em;
   display: flex;
+  margin-bottom: 0.3em;
 }
 
 .delete-event-btn{
@@ -657,4 +658,29 @@ body{
   margin-left: auto;
 }
 
+.event-input-group{
+  background-color: yellow;
+  padding: 0.5em 1.2em;
+}
+
+.event-input-group label{
+  display: inline-block;
+  color:#6E6B7B;
+  font-size: 0.9em;
+  padding-bottom: 0.3em;
+}
+
+.event-input-group div{
+  background-color: #ffffff;
+  padding: 0.5em;
+  border-radius: 0.25em;
+  border: 1px solid #D8D6DE;
+}
+
+.event-input-group input{
+  outline: none;
+  width: 95%;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+}
 
