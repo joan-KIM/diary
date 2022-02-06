@@ -631,10 +631,12 @@ body{
 }
 
 .modal{
+  display: flex;
+  flex-direction: column;
   z-index: 10;
   background-color: #ffffff;
   width: 340px;
-  height: 400px;
+  /* height: 400px; */
   margin: auto;
   border-radius: 0.5em;
   box-shadow: 3px 3px 30px rgba(110, 107, 123, 0.25);
@@ -650,7 +652,10 @@ body{
   font-size: 1.1em;
   padding: 0.7em 1em;
   display: flex;
-  margin-bottom: 0.3em;
+}
+
+.modal form{
+  padding: 0.3em 0 0.5em 0;
 }
 
 .delete-event-btn{
@@ -659,7 +664,7 @@ body{
 }
 
 .event-input-group{
-  background-color: yellow;
+  /* background-color: yellow; */
   padding: 0.5em 1.2em;
 }
 
@@ -684,3 +689,31 @@ body{
   font-family: 'Montserrat', sans-serif;
 }
 
+.modal-footer{
+  border: 1px solid #F8F8F8;
+  border-style: solid none none none;
+  padding: 1.2em;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.close-modal{
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #6E6B7B;
+  border: 1px solid #6E6B7B;
+  border-radius: 0.3em;
+  background-color: #ffffff;
+  padding: 0.5em 1em;
+}
+
+.save-event-btn{
+  font-family: 'Montserrat';
+  font-weight: 600;
+  color: #ffffff;
+  border: 1px solid #EA5455;
+  border-radius: 0.3em;
+  background-color: #EA5455;
+  padding: 0.5em 1.5em;
+  margin-left: 0.5em;
+}

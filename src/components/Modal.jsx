@@ -40,7 +40,10 @@ export default function Modal(){
                     </div>
                 </form>
 
-                
+                <div className="modal-footer">
+                    <button className="close-modal">Cancle</button>
+                    <button className="save-event-btn">Save</button>
+                </div>
             </div>
         </div>
     )
