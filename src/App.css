@@ -321,7 +321,7 @@ body{
 .prev-btn:hover,
 .next-btn:hover,
 .today-btn:hover{
-  background-color: #ebe9f17e;
+  background-color: rgba(110, 107, 123, 0.03);
 }
 
 .prev-btn, .next-btn{
@@ -550,6 +550,11 @@ body{
   font-family: 'Montserrat';
   display: block;
   margin: 2.3em  auto;
+  cursor: pointer;
+}
+
+.add-event-btn:hover{
+  background-color: rgba(110, 107, 123, 0.06);
 }
 
 .timeline{
@@ -615,3 +620,23 @@ body{
   font-size: 0.8em;
   margin:0;
 }
+
+.modal-background{
+  display: flex;
+  position: absolute;
+  background-color: rgba(110, 107, 123, 0.45);
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+}
+
+.modal{
+  z-index: 10;
+  background-color: #ffffff;
+  width: 350px;
+  height: 400px;
+  margin: auto;
+  border-radius: 0.5em;
+  box-shadow: 3px 3px 30px rgba(110, 107, 123, 0.25);
+}
+

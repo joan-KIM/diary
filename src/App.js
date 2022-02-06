@@ -4,6 +4,7 @@ import Monthly from "./components/Monthly";
 import Daily from "./components/Daily";
 import {today} from "./utils/date"
 import { uuid } from "./utils/uuid";
+import Modal from "./components/Modal";
 
 function App() {
   const [data, setData] = useState({
@@ -43,6 +44,7 @@ function App() {
     <div className="App">
       <Monthly date={date} changeHandler={changeHandler} />
       <Daily date={date} data={data[date]} update={update} />
+      <Modal />
     </div>
   );
 }
