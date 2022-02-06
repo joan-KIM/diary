@@ -1,5 +1,6 @@
 import React from "react";
 import { MdOutlineDelete } from "react-icons/md";
+import classNames from "classnames";
 
 export default function Modal(){
     return (
@@ -13,29 +14,33 @@ export default function Modal(){
                 <form className="md-input-wrapper">
                     <div className="event-input-group">
                         <label for="event-title">Title</label>
-                        <div>
+                        <div className="event-inputbox-wrapper">
                             <input type="text" id="event-title"></input>
                         </div>
                     </div>
 
                     <div className="event-input-group">
                         <label for="event-time">Time</label>
-                        <div>
+                        <div className="event-inputbox-wrapper">
                             <input type="text" id="event-time"></input>
                         </div>
                     </div>
 
                     <div className="event-input-group">
                         <label for="event-place">Place</label>
-                        <div>
+                        <div className="event-inputbox-wrapper">
                             <input type="text" id="event-place"></input>
                         </div>
                     </div>
 
                     <div className="event-input-group">
                         <label for="event-category">Calendar</label>
-                        <div>
-                            <input type="text" id="event-category"></input>
+                        <div className={classNames("event-inputbox-wrapper", "select-category")} >
+                            <div className="event-category" />
+                            <div className="event-category" />
+                            <div className="event-category" />
+                            <div className="event-category" />
+                            <div className="event-category" />
                         </div>
                     </div>
                 </form>

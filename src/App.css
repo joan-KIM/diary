@@ -655,7 +655,7 @@ body{
 }
 
 .modal form{
-  padding: 0.3em 0 0.5em 0;
+  padding: 0.3em 0 0.8em 0;
 }
 
 .delete-event-btn{
@@ -675,7 +675,7 @@ body{
   padding-bottom: 0.3em;
 }
 
-.event-input-group div{
+.event-inputbox-wrapper{
   background-color: #ffffff;
   padding: 0.5em;
   border-radius: 0.25em;
@@ -716,4 +716,17 @@ body{
   background-color: #EA5455;
   padding: 0.5em 1.5em;
   margin-left: 0.5em;
+}
+
+.select-category{
+  display: flex;
+  justify-content: center;
+}
+
+.event-category{
+  width: 13px;
+  height: 13px;
+  border-radius: 50%;
+  background-color: #7367f0;
+  margin: 0.2em 1em;
 }
