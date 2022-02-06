@@ -7,8 +7,14 @@ export default function Modal(){
             <div className="modal">
                 <div className="modal-header">
                     Add Event
-                    <MdOutlineDelete />
+                    <MdOutlineDelete className="delete-event-btn" />
                 </div>
+
+                <form className="md-input-wrapper">
+                    
+
+
+                </form>
             </div>
         </div>
     )

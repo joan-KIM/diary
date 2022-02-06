@@ -640,3 +640,21 @@ body{
   box-shadow: 3px 3px 30px rgba(110, 107, 123, 0.25);
 }
 
+.modal-header{
+  background-color: #F8F8F8;
+  border-radius: 0.5em;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  color: #6E6B7B;
+  font-weight: 600;
+  font-size: 1.1em;
+  padding: 0.7em 1em;
+  display: flex;
+}
+
+.delete-event-btn{
+  font-size: 1.3em;
+  margin-left: auto;
+}
+
+
