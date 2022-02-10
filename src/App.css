@@ -623,7 +623,9 @@ body{
 
 .modal-background{
   display: flex;
-  position: absolute;
+  position: fixed;
+  top: 0;
+  left: 0;
   background-color: rgba(110, 107, 123, 0.45);
   z-index: 3;
   width: 100vw;

@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { MdOutlineDelete, MdUnfoldMore } from "react-icons/md";
 import classNames from "classnames";
 
-export default function Modal({toggleHandler, categoryLabels, settingPlace, settingTitle, selectCategory, saveEvent}){
+export default function Modal({categoryLabels, closeModal , saveEvent}){
     const labels = categoryLabels.map( label => {
         return <div 
                     className="event-category" 
@@ -10,6 +10,27 @@ export default function Modal({toggleHandler, categoryLabels, settingPlace, sett
                     style={{backgroundColor: label.color}}
                 />
     })
+
+    const [title, setTitle] = useState('');
+    const [place, setPlace] = useState('');
+    const [category, setCategory] = useState('');
+
+    const settingTitle = (value) => {
+        setTitle(value);
+    }
+
+    const settingPlace = (value) => {
+        setPlace(value);
+    }
+
+    const selectCategory = (value) => {
+        setCategory(value);
+    }
+
+    const saveHandler = () => {
+        saveEvent({title, place, category});
+        closeModal();
+    }
 
   
     return (
@@ -63,8 +84,8 @@ export default function Modal({toggleHandler, categoryLabels, settingPlace, sett
                 </form>
 
                 <div className="modal-footer">
-                    <button className="close-modal" onClick={e => toggleHandler(e)}>Cancle</button>
-                    <button className="save-event-btn" onClick={saveEvent} >Save</button>
+                    <button className="close-modal" onClick={e => closeModal(e)}>Cancle</button>
+                    <button className="save-event-btn" onClick={saveHandler} >Save</button>
                 </div>
             </div>
         </div>
