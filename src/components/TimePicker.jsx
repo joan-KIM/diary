@@ -7,13 +7,13 @@ const MINUTE_OPTION = Array.from({length: 60}, (_, i) => `${i < 10 ? '0' + i : i
 
 function HourPicker({hour, selectHour}){
     return <select onChange={e => selectHour(e.target.value)} >
-        {HOUR_OPTION.map(h => <option key={h} value={h} selectHour={hour===h} >{h}</option>)}
+        {HOUR_OPTION.map(h => <option key={h} value={h} selected={hour===h} >{h}</option>)}
     </select>
 }
 
 function MinutePicker({minute, selectMinute}){
     return <select onChange={e => selectMinute(e.target.value)} >
-        {MINUTE_OPTION.map(m => <option key={m} value={m} selectMinute={minute===m} >{m}</option>)}
+        {MINUTE_OPTION.map(m => <option key={m} value={m} selected={minute===m} >{m}</option>)}
     </select>
 }
 

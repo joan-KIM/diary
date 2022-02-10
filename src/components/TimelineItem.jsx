@@ -1,14 +1,15 @@
-import React from "react";
+import React, {useState} from "react";
 import { toTimeLabel } from "../utils/time";
+import Modal from "./Modal";
 
-export default function TimelineItem({title, place, category, startTime, endTime}) {
-    return  <li className='timeline-item'>
+export default function TimelineItem({event, onClick}) {
+    return  <li className='timeline-item' onClick={onClick} >
                 <div className='timeline-point'
-                    style={{backgroundColor: category.color}} />
+                    style={{backgroundColor: event.category.color}} />
                 <div className='event-wrapper'>
-                    <span className='event-title'>{title}</span>
-                    <span className='event-time'>{toTimeLabel(startTime)} - {toTimeLabel(endTime)}</span>
+                    <span className='event-title'>{event.title}</span>
+                    <span className='event-time'>{toTimeLabel(event.startTime)} - {toTimeLabel(event.endTime)}</span>
                 </div>
-                <p className='event-place'>{place}</p>
+                <p className='event-place'>{event.place}</p>
             </li>
 }
