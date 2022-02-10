@@ -1,12 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import { MdOutlineDelete, MdUnfoldMore } from "react-icons/md";
 import classNames from "classnames";
 
-export default function Modal({toggleHandler, categoryLabels}){
+export default function Modal({toggleHandler, categoryLabels, settingPlace, settingTitle, selectCategory, saveEvent}){
     const labels = categoryLabels.map( label => {
-        return <div className="event-category" style={{backgroundColor: label.color}}></div>
+        return <div 
+                    className="event-category" 
+                    onClick={e => selectCategory(label)}
+                    style={{backgroundColor: label.color}}
+                />
     })
 
+  
     return (
         <div className="modal-background">
             <div className="modal">
@@ -19,7 +24,7 @@ export default function Modal({toggleHandler, categoryLabels}){
                     <div className="event-input-group">
                         <label for="event-title">Title</label>
                         <div className="event-inputbox-wrapper">
-                            <input type="text" id="event-title"></input>
+                            <input type="text" id="event-title" onChange={e => settingTitle(e.target.value)} ></input>
                         </div>
                     </div>
 
@@ -45,7 +50,7 @@ export default function Modal({toggleHandler, categoryLabels}){
                     <div className="event-input-group">
                         <label for="event-place">Place</label>
                         <div className="event-inputbox-wrapper">
-                            <input type="text" id="event-place"></input>
+                            <input type="text" id="event-place" onChange={e => settingPlace(e.target.value)} ></input>
                         </div>
                     </div>
 
@@ -59,7 +64,7 @@ export default function Modal({toggleHandler, categoryLabels}){
 
                 <div className="modal-footer">
                     <button className="close-modal" onClick={e => toggleHandler(e)}>Cancle</button>
-                    <button className="save-event-btn">Save</button>
+                    <button className="save-event-btn" onClick={saveEvent} >Save</button>
                 </div>
             </div>
         </div>

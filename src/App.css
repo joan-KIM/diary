@@ -722,6 +722,7 @@ body{
   background-color: #EA5455;
   padding: 0.5em 1.5em;
   margin-left: 0.5em;
+  cursor: pointer;
 }
 
 .select-category{

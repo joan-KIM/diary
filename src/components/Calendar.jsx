@@ -1,7 +1,10 @@
 import React from "react";
 import DatePicker from "./DatePicker";
+import TimelineItem from "./TimelineItem";
 
-export default function Calendar({date, changeHandler, toggleHandler}){
+export default function Calendar({date, changeHandler, toggleHandler, events}){
+    const items = events.map( event => <TimelineItem title={event.title} place={event.place} category={event.category} />)
+
     return (
         <div className='calendar-section' >
             <div className='calendar-container'>
@@ -9,32 +12,9 @@ export default function Calendar({date, changeHandler, toggleHandler}){
 
                <button className='add-event-btn' onClick={e => toggleHandler(e)} >Add Event</button>
                
-               <ul className='timeline'>
-                    <li className='timeline-item'>
-                        <div className='timeline-point'></div>
-                        <div className='event-wrapper'>
-                            <span className='event-title'>치과 정기검진</span>
-                            <span className='event-time'>13:30 - 14:30</span>
-                        </div>
-                        <p className='event-place'>아름다운 이치과의원</p>
-                    </li>
-                    <li className='timeline-item'>
-                        <div className='timeline-point'></div>
-                        <div className='event-wrapper'>
-                            <span className='event-title'>아르바이트</span>
-                            <span className='event-time'>17:00 - 22:00</span>
-                        </div>
-                        <p className='event-place'>하삼동커피 기장떙땡점</p>
-                    </li>
-                    <li className='timeline-item'>
-                        <div className='timeline-point'></div>
-                        <div className='event-wrapper'>
-                            <span className='event-title'>아르바이트</span>
-                            <span className='event-time'>17:00 - 22:00</span>
-                        </div>
-                        <p className='event-place'>하삼동커피 기장떙땡점</p>
-                    </li>
-               </ul>
+                <ul className='timeline'>
+                   {items}
+                </ul>
             </div>
         </div>
     )

@@ -7,18 +7,19 @@ import { uuid } from "./utils/uuid";
 
 function App() {
   const [data, setData] = useState({
-    '21/11/28' : {
+    '21/12/10' : {
       tasks: [
         {
           id: uuid(),
-          title: '알배추 사오기',
+          title: '이벤트 등록',
           state: false
         }
       ],
       note: {
         title: '우아아아?',
         content: '돌아가라 머리머리'
-      }
+      },
+      event: []
     }
   }
 );
