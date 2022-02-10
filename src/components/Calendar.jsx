@@ -4,7 +4,7 @@ import TimelineItem from "./TimelineItem";
 import Modal from "./Modal";
 
 export default function Calendar({date, changeHandler, categoryLabels, saveEvent, events}){
-    const items = events.map( event => <TimelineItem title={event.title} place={event.place} category={event.category} />)
+    const items = events.map( event => <TimelineItem title={event.title} place={event.place} category={event.category} startTime={event.startTime} endTime={event.endTime} />)
 
     const [isShown, setIsShown] = useState(false);
     const openModal = () => setIsShown(true);

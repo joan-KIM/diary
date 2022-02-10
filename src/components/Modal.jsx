@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import { MdOutlineDelete, MdUnfoldMore } from "react-icons/md";
+import { MdOutlineDelete } from "react-icons/md";
 import classNames from "classnames";
+import TimePicker from "./TimePicker";
+import { toTimeLabel } from "../utils/time";
 
 export default function Modal({categoryLabels, closeModal , saveEvent}){
     const labels = categoryLabels.map( label => {
@@ -13,6 +15,8 @@ export default function Modal({categoryLabels, closeModal , saveEvent}){
 
     const [title, setTitle] = useState('');
     const [place, setPlace] = useState('');
+    const [startTime, setStartTime] = useState();
+    const [endTime, setEndTime] = useState();
     const [category, setCategory] = useState('');
 
     const settingTitle = (value) => {
@@ -28,7 +32,7 @@ export default function Modal({categoryLabels, closeModal , saveEvent}){
     }
 
     const saveHandler = () => {
-        saveEvent({title, place, category});
+        saveEvent({title, place, category, startTime, endTime});
         closeModal();
     }
 
@@ -52,19 +56,9 @@ export default function Modal({categoryLabels, closeModal , saveEvent}){
                     <div className="event-input-group">
                         <label for="event-time">Time</label>
                         <div className="timepicker-group">
-                            <div className="timepicker-wrapper">
-                                <input value="00"/>
-                                <MdUnfoldMore className="time-select-btn" />
-                                <input value="00"/>
-                                <MdUnfoldMore className="time-select-btn" />
-                            </div>
+                            <TimePicker timeValue={startTime} selectTime={setStartTime} />
                             <span>~</span>
-                            <div className="timepicker-wrapper">
-                                <input value="00" />
-                                <MdUnfoldMore className="time-select-btn" />
-                                <input value="00" />
-                                <MdUnfoldMore className="time-select-btn" />
-                            </div>
+                            <TimePicker  timeValue={endTime} selectTime={setEndTime} />
                         </div>
                     </div>
 
