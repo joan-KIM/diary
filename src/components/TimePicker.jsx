@@ -5,15 +5,15 @@ import { toTimeValue, toTimeLabel } from "../utils/time";
 const HOUR_OPTION = Array.from({length: 24}, (_, i) => `${i < 10 ? '0' + i : i}`);
 const MINUTE_OPTION = Array.from({length: 60}, (_, i) => `${i < 10 ? '0' + i : i}`);
 
-function HourPicker(hour, selectHour){
-    return <select onChnage={e => selectHour(e.target.value)} >
-        {HOUR_OPTION.map(h => <option key={h} value={h} select={hour===h} >{h}</option>)}
+function HourPicker({hour, selectHour}){
+    return <select onChange={e => selectHour(e.target.value)} >
+        {HOUR_OPTION.map(h => <option key={h} value={h} selectHour={hour===h} >{h}</option>)}
     </select>
 }
 
-function MinutePicker(minute, selectMinute){
-    return <select onChnage={e => selectMinute(e.target.value)} >
-        {MINUTE_OPTION.map(m => <option key={m} value={m} select={minute===m} >{m}</option>)}
+function MinutePicker({minute, selectMinute}){
+    return <select onChange={e => selectMinute(e.target.value)} >
+        {MINUTE_OPTION.map(m => <option key={m} value={m} selectMinute={minute===m} >{m}</option>)}
     </select>
 }
 
@@ -25,6 +25,7 @@ export default function TimePicker({timeValue, selectTime}){
     // selecTime <-- onChange
     useEffect(() => {
         if(hour && minute){
+            console.log(hour, minute);
             selectTime(toTimeValue(`${hour}:${minute}`));
         }
     }, [hour, minute, selectTime])

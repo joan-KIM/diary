@@ -8,5 +8,9 @@ export function toTimeLabel(value) {
     const hour = Math.floor(value / 60);
     const minutes = value % 60;
 
+    if(value === undefined){
+        return '00:00';
+    }
+
     return (hour<10 ? `0${hour}` : hour) + ':' + (minutes<10 ? `0${minutes}` : minutes);
 }
