@@ -40,11 +40,17 @@ function App() {
     });
   }
 
+  const [isShown, setIsShown] = useState(false);
+
+  const toggleHandler = (e) => {
+    setIsShown(!isShown);
+  }
+
   return (
     <div className="App">
-      <Monthly date={date} changeHandler={changeHandler} />
+      <Monthly date={date} changeHandler={changeHandler} toggleHandler={toggleHandler} />
       <Daily date={date} data={data[date]} update={update} />
-      <Modal />
+      { isShown && <Modal toggleHandler={toggleHandler} /> }
     </div>
   );
 }

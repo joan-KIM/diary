@@ -1,13 +1,13 @@
 import React from "react";
 import DatePicker from "./DatePicker";
 
-export default function Calendar({date, changeHandler}){
+export default function Calendar({date, changeHandler, toggleHandler}){
     return (
         <div className='calendar-section' >
             <div className='calendar-container'>
                <DatePicker selectedDate={date} changeHandler={changeHandler}></DatePicker>
 
-               <button className='add-event-btn'>Add Event</button>
+               <button className='add-event-btn' onClick={e => toggleHandler(e)} >Add Event</button>
                
                <ul className='timeline'>
                     <li className='timeline-item'>

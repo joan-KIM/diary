@@ -661,6 +661,7 @@ body{
 .delete-event-btn{
   font-size: 1.3em;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .event-input-group{
@@ -705,6 +706,11 @@ body{
   border-radius: 0.3em;
   background-color: #ffffff;
   padding: 0.5em 1em;
+  cursor: pointer;
+}
+
+.close-modal:hover{
+  background-color: rgba(110, 107, 123, 0.06);
 }
 
 .save-event-btn{

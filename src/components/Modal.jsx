@@ -2,7 +2,7 @@ import React from "react";
 import { MdOutlineDelete, MdUnfoldMore } from "react-icons/md";
 import classNames from "classnames";
 
-export default function Modal(){
+export default function Modal({toggleHandler}){
     return (
         <div className="modal-background">
             <div className="modal">
@@ -58,7 +58,7 @@ export default function Modal(){
                 </form>
 
                 <div className="modal-footer">
-                    <button className="close-modal">Cancle</button>
+                    <button className="close-modal" onClick={e => toggleHandler(e)}>Cancle</button>
                     <button className="save-event-btn">Save</button>
                 </div>
             </div>
