@@ -733,8 +733,8 @@ body{
   width: 13px;
   height: 13px;
   border-radius: 50%;
-  background-color: #7367f0;
   margin: 0.2em 1em;
+  cursor: pointer;
 }
 
 .timepicker-group{

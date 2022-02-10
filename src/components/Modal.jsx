@@ -2,7 +2,11 @@ import React from "react";
 import { MdOutlineDelete, MdUnfoldMore } from "react-icons/md";
 import classNames from "classnames";
 
-export default function Modal({toggleHandler}){
+export default function Modal({toggleHandler, categoryLabels}){
+    const labels = categoryLabels.map( label => {
+        return <div className="event-category" style={{backgroundColor: label.color}}></div>
+    })
+
     return (
         <div className="modal-background">
             <div className="modal">
@@ -48,11 +52,7 @@ export default function Modal({toggleHandler}){
                     <div className="event-input-group">
                         <label for="event-category">Calendar</label>
                         <div className={classNames("event-inputbox-wrapper", "select-category")} >
-                            <div className="event-category" />
-                            <div className="event-category" />
-                            <div className="event-category" />
-                            <div className="event-category" />
-                            <div className="event-category" />
+                            {labels}
                         </div>
                     </div>
                 </form>

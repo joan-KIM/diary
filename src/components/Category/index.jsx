@@ -1,27 +1,16 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { MdAdd } from "react-icons/md";
 import { pickColor } from "../../utils/color";
 import CategoryInputGroup from "./CategoryInputGroup";
 import CategoryList from "./CategoryList";
 
-export default function Category(){
-    const initialLabels = [
-        {
-            'name':'Personal',
-            'color':'#7367f0'
-        },
-        {
-            'name':'Family',
-            'color':'#28c76f'
-        }, 
-        {
-            'name':'Business',
-            'color': '#ff9f43'
-        }
-    ]
-
+export default function Category({initialLabels, updateLabels}){
     const [isShown, setIsShown] = useState(false);
     const [labels, setLabels] = useState(initialLabels);
+
+    useEffect(() => {
+        updateLabels(labels);
+    }, [labels])
 
     const toggleHandler = (e) => {
         if(labels.length == 6) {
@@ -30,7 +19,6 @@ export default function Category(){
             setIsShown(true);
         }
     }
-
 
     const addNewCalendar = (text) => {
         setLabels([
