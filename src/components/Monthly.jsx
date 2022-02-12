@@ -1,8 +1,6 @@
-import React, {useEffect, useState} from "react";
+import React, { useState} from "react";
 import Category from "./Category";
 import Calendar from "./Calendar";
-import Modal from "./Modal";
-import { MdEdit } from "react-icons/md";
 
 export default function Monthly({date, changeHandler}) {
     const initialLabels = [
@@ -26,11 +24,11 @@ export default function Monthly({date, changeHandler}) {
  
     const updateLabels = (labels) => {
         setCategoryLabels(labels);
-        console.log(categoryLabels);
     }
 
     const saveEvent = (event) => {
         let nextEvents = events;
+        // 수정(같은 id를 갖고 있는 event가 있으면 대체)
         if(events.find(e => e.id === event.id)){
             nextEvents = events.map(e => {
                 if(e.id === event.id){
@@ -47,15 +45,12 @@ export default function Monthly({date, changeHandler}) {
         
         const sortedEvents = nextEvents.sort((a,b) => a.startTime - b.startTime);
         setEvents(sortedEvents);
-        
     }
 
     const deleteEvent = (id) => {
         const deletedEvents = events.filter(event => event.id !== id );
         setEvents(deletedEvents);
     }
-
-    console.log(events);
 
     return(
         <div className='monthly'>

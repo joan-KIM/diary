@@ -5,8 +5,10 @@ import TimePicker from "./TimePicker";
 import { uuid } from "../utils/uuid";
 
 export default function Modal({event, categoryLabels, closeModal , saveEvent, deleteEvent}){
+    // 등록된 이벤트가 있을 경우(일정 수정할 때) event 존재유무 확인후 초기값 설정
     const [title, setTitle] = useState(event ? event.title : '');
     const [place, setPlace] = useState(event ? event.place : '');
+    // 옵션 모두 선택 후, selectTime으로 넘어온 (00:00 형태의 값)을 전달 받아서 시작시간, 종료시간 저장
     const [startTime, setStartTime] = useState(event ? event.startTime : '');
     const [endTime, setEndTime] = useState(event ? event.endTime : '');
     const [category, setCategory] = useState(event ? event.category : '');

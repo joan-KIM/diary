@@ -1,6 +1,5 @@
-import React, {useState} from "react";
+import React from "react";
 import { toTimeLabel } from "../utils/time";
-import Modal from "./Modal";
 
 export default function TimelineItem({event, onClick}) {
     return  <li className='timeline-item' onClick={onClick} >

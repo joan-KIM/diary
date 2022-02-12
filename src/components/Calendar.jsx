@@ -34,7 +34,7 @@ export default function Calendar({date, changeHandler, categoryLabels, saveEvent
                {isShown 
                &&
                <Modal 
-                    event={editEvent}
+                    event={editEvent}           // timeline item 눌러서 수정을 위해 Modal창 띄워야할 경우, 해당 event 정보가 필요
                     closeModal={closeModal}
                     categoryLabels={categoryLabels} 
                     saveEvent={saveEvent}
