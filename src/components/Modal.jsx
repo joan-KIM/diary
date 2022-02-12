@@ -14,11 +14,13 @@ export default function Modal({event, categoryLabels, closeModal , saveEvent, de
     const [category, setCategory] = useState(event ? event.category : '');
 
     const labels = categoryLabels.map( label => {
-        return <div 
-                    className="event-category" 
-                    onClick={e => selectCategory(label)}
-                    style={{backgroundColor: label.color}}
-                />
+        return      <input
+                        type="radio"
+                        name="label"
+                        className="event-category" 
+                        onClick={e => selectCategory(label)}
+                        style={{backgroundColor: label.color}}
+                    />             
     })
 
     const settingTitle = (value) => {

@@ -679,7 +679,7 @@ body{
   border: 1px solid #D8D6DE;
 }
 
-.event-input-group input{
+.event-input-group input[type=text]{
   outline: none;
   width: 95%;
   border: none;
@@ -721,17 +721,36 @@ body{
   cursor: pointer;
 }
 
+.save-event-btn:hover{
+  background-color: #e63f3f;
+}
+
 .select-category{
   display: flex;
   justify-content: center;
 }
 
 .event-category{
-  width: 13px;
+  appearance: none;
+  background-color: red;
+  width: 13px; 
   height: 13px;
   border-radius: 50%;
-  margin: 0.2em 1em;
+  margin: 0.2em 1.2em;
   cursor: pointer;
+  position: relative;
+}
+
+.event-category:hover::before,
+.event-category:checked::before{
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid #D8D6DE;
+  position: absolute;
+  top: -4.5px;
+  left: -4.5px;
 }
 
 .timepicker-group{
@@ -742,12 +761,6 @@ body{
 .timepicker-group span{
   margin: 1em;
   color:#6E6B7B;
-}
-
-.timepicker-group input{
-  width: 25%;
-  color: #6E6B7B;
-  text-align: center;
 }
 
 .time-select-btn{
