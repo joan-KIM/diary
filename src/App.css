@@ -695,6 +695,7 @@ body{
   width: 95%;
   border: none;
   font-family: 'Montserrat', sans-serif;
+  color:#6E6B7B;
 }
 
 .modal-footer{
@@ -767,6 +768,7 @@ body{
 .timepicker-group{
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .timepicker-group span{
@@ -774,14 +776,45 @@ body{
   color:#6E6B7B;
 }
 
-.time-select-btn{
-  width: 20%;
-  color: #D8D6DE;
-  font-size: 1.5em;
-}
-
 .timepicker-wrapper{
   display: flex;
   justify-content: center;
   align-content: center;
 }
+
+.timepicker-wrapper div{
+  /* display: flex; */
+  background-color: aquamarine;
+  position: relative;
+  width: 48px;
+}
+
+.timepicker{
+  z-index: 50;
+  width: inherit;
+  appearance: none;
+  outline: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  color:#6E6B7B; 
+  cursor: pointer;
+  padding: 0.1em 0.3em 0.1em 0.5em;
+  letter-spacing: 0.1em;
+  /* background-color: #7367f0; */
+}
+
+.time-select-btn{
+  z-index: 15;
+  color: #D8D6DE;
+  font-size: 1.5em;
+  cursor: pointer;
+  position:absolute;
+  top: 0;
+  right: 0;
+}
+
+.timepicker-wrapper span{
+  margin: 0 0.7em;
+  font-weight: 600;
+}
+

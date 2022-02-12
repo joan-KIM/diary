@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { MdUnfoldMore } from "react-icons/md";
+import { MdArrowDropDown } from "react-icons/md";
 import { toTimeValue, toTimeLabel } from "../utils/time";
 
 // 시간 (01~24) 분 (00~60)
@@ -8,15 +8,21 @@ const MINUTE_OPTION = Array.from({length: 60}, (_, i) => `${i < 10 ? '0' + i : i
 
 // 옵션 선택 -> 선택된 값이 selectHour(), selectMinute()에 전달 -> setHour(값), setMinute(값)
 function HourPicker({hour, selectHour}){
-    return <select onChange={e => selectHour(e.target.value)} >
-        {HOUR_OPTION.map(h => <option key={h} value={h} selected={hour===h} >{h}</option>)}
-    </select>
+    return  <div>
+                <select onChange={e => selectHour(e.target.value)}  className="timepicker">
+                    {HOUR_OPTION.map(h => <option key={h} value={h} selected={hour===h} >{h}</option>)}
+                </select>
+                <MdArrowDropDown className="time-select-btn" />
+            </div>
 }
 
 function MinutePicker({minute, selectMinute}){
-    return <select onChange={e => selectMinute(e.target.value)} >
-        {MINUTE_OPTION.map(m => <option key={m} value={m} selected={minute===m} >{m}</option>)}
-    </select>
+    return  <div >
+                <select onChange={e => selectMinute(e.target.value)} className="timepicker">
+                    {MINUTE_OPTION.map(m => <option key={m} value={m} selected={minute===m} >{m}</option>)}
+                </select>
+                <MdArrowDropDown className="time-select-btn" />
+            </div>
 }
 
 // timeValue는 숫자형태의 값
@@ -36,9 +42,8 @@ export default function TimePicker({timeValue, selectTime}){
 
     return  <div className="timepicker-wrapper">
                 <HourPicker hour={hour} selectHour={setHour} />
-                <MdUnfoldMore className="time-select-btn" />
+                <span>:</span>
                 <MinutePicker minute={minute} selectMinute={setMinute} />
-                <MdUnfoldMore className="time-select-btn" />
             </div>
             
 }

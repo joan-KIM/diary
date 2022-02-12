@@ -1,8 +1,9 @@
-import React, { useState} from "react";
+import React, { useEffect, useState} from "react";
 import Category from "./Category";
 import Calendar from "./Calendar";
 
-export default function Monthly({date, changeHandler}) {
+export default function Monthly({date, data, update, changeHandler}) {
+    // console.log(data.events);
     const initialLabels = [
         {
             'name':'Personal',
@@ -19,13 +20,18 @@ export default function Monthly({date, changeHandler}) {
     ]
 
     const [categoryLabels, setCategoryLabels] = useState(initialLabels);
-
     const [events, setEvents] = useState([]);
- 
+    // const [events, setEvents] = useState(data.events);
+
     const updateLabels = (labels) => {
         setCategoryLabels(labels);
     }
 
+    // useEffect(() => {
+    //     setEvents(data.events);
+    //     update(date, data.tasks, data.note, events);
+    // }, [date]);
+ 
     const saveEvent = (event) => {
         let nextEvents = events;
         // 수정(같은 id를 갖고 있는 event가 있으면 대체)

@@ -86,6 +86,7 @@ Daily.defaultProps = {
         note: {
             title:'',
             content:''
-        }
+        },
+        events: []
     }
 }
