@@ -1,5 +1,6 @@
 import React from "react";
 import { toTimeLabel } from "../utils/time";
+import {MdOutlinePlace} from "react-icons/md";
 
 export default function TimelineItem({event, onClick}) {
     return  <li className='timeline-item' onClick={onClick} >
@@ -12,6 +13,9 @@ export default function TimelineItem({event, onClick}) {
                     <span className='event-title'>{event.title}</span>
                     <span className='event-time'>{toTimeLabel(event.startTime)} - {toTimeLabel(event.endTime)}</span>
                 </div>
-                <p className='event-place'>{event.place}</p>
+                <div style={{ display:'flex'}}>
+                    <MdOutlinePlace className='place-icon' />
+                    <p className='event-place'>{event.place}</p>
+                </div>
             </li>
 }

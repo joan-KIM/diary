@@ -574,6 +574,11 @@ body{
   padding-left: 2em;
 }
 
+.timeline-item:hover{
+  background-color: rgba(233, 233, 233, 0.123);
+  cursor: pointer;
+}
+
 .timeline-point{
   width: 12px;
   height: 12px;
@@ -588,6 +593,12 @@ body{
   border-radius: 50%;
   top:-10px;
   left: -10.5px;
+}
+
+.place-icon{
+  color: #EEE9F1;
+  font-size: 1.1em;
+  padding: 0.2em;
 }
 
 .event-wrapper{
