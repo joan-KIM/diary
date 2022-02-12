@@ -46,7 +46,7 @@ export default function Modal({event, categoryLabels, closeModal , saveEvent, de
             <div className="modal">
                 <div className="modal-header">
                     { event ? 'Edit Event' : 'Add Event'}
-                    { event && <MdOutlineDelete className="delete-event-btn" onClick={() => deleteEvent(event.id)} /> }
+                    { event && <MdOutlineDelete className="delete-event-btn" onClick={() => deleteEvent(event.id) || closeModal()} /> }
                 </div>
 
                 <form className="md-input-wrapper">
