@@ -2,7 +2,7 @@ import React, { useEffect, useState} from "react";
 import Category from "./Category";
 import Calendar from "./Calendar";
 
-export default function Monthly({date, data, update, changeHandler}) {
+export default function Monthly({date, data, updateEvent, changeHandler}) {
     // console.log(data.events);
     const initialLabels = [
         {
@@ -20,17 +20,16 @@ export default function Monthly({date, data, update, changeHandler}) {
     ]
 
     const [categoryLabels, setCategoryLabels] = useState(initialLabels);
-    const [events, setEvents] = useState([]);
-    // const [events, setEvents] = useState(data.events);
+    // const [events, setEvents] = useState([]);
+
+    // const events = (data[date] && data[date].events) || [];
+    // data에 해당 date가 있어야 events에 접근가능
+    const events = (data[date]?.events) || [];      //optional chaining
 
     const updateLabels = (labels) => {
         setCategoryLabels(labels);
     }
 
-    // useEffect(() => {
-    //     setEvents(data.events);
-    //     update(date, data.tasks, data.note, events);
-    // }, [date]);
  
     const saveEvent = (event) => {
         let nextEvents = events;
@@ -50,12 +49,12 @@ export default function Monthly({date, data, update, changeHandler}) {
         }
         
         const sortedEvents = nextEvents.sort((a,b) => a.startTime - b.startTime);
-        setEvents(sortedEvents);
+        updateEvent(date, sortedEvents);
     }
 
     const deleteEvent = (id) => {
         const deletedEvents = events.filter(event => event.id !== id );
-        setEvents(deletedEvents);
+        updateEvent(date, deletedEvents)
     }
 
     return(

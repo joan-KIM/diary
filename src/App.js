@@ -7,7 +7,7 @@ import { uuid } from "./utils/uuid";
 
 function App() {
   const [data, setData] = useState({
-    '22/2/12' : {
+    '22/2/13' : {
       tasks: [
         {
           id: uuid(),
@@ -42,22 +42,32 @@ function App() {
     setDate(value);
   }
 
-  const update = (date, tasks, note, events) => {
+  const update = (date, tasks, note) => {
     setData({
       ...data,
       [date]: {
+        ...data[date],
         tasks,
-        note,
-        events
+        note
       }
     });
+  }
+
+  const updateEvent = (date, events) => {
+    setData({
+      ...data,
+      [date] : {
+        ...data[date],
+        events,
+      }
+    })
   }
 
   console.log(data);
 
   return (
     <div className="App">
-      <Monthly date={date} data={data[date]} update={update} changeHandler={changeHandler} />
+      <Monthly date={date} data={data} updateEvent={updateEvent} changeHandler={changeHandler} />
       <Daily date={date} data={data[date]} update={update} />
     </div>
   );

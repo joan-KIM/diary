@@ -6,15 +6,15 @@ import { uuid } from "../utils/uuid";
 import { today } from "../utils/date";
 
 export default function Daily({date, data, update}){
-    const [title, setTitle] = useState(data.note.title);
-    const [content, setContent] = useState(data.note.content);
-    const [tasks, setTasks] = useState(data.tasks);
+    const [title, setTitle] = useState(data?.note?.title);
+    const [content, setContent] = useState(data?.note?.content);
+    const [tasks, setTasks] = useState(data?.tasks);
     const [curDate, setCurDate] = useState(date);
 
     useEffect(() => {
-        setTasks(data.tasks);
-        setTitle(data.note.title);
-        setContent(data.note.content);
+        setTasks(data?.tasks);
+        setTitle(data?.note?.title);
+        setContent(data?.note?.content);
         update(curDate, tasks, {title, content});
         setCurDate(date);
     }, [date])
