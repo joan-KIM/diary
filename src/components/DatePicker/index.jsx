@@ -4,7 +4,7 @@ import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import {toDateObj, enMonth, toDate, today} from '../../utils/date';
 import { DAY_LIST } from "./constants";
 
-export default function DatePicker({selectedDate, changeHandler}){
+export default function DatePicker({data, selectedDate, changeHandler}){
     const dateObj = toDateObj(selectedDate);
     const year = dateObj.getFullYear();
     const month = dateObj.getMonth();
@@ -25,6 +25,7 @@ export default function DatePicker({selectedDate, changeHandler}){
             : 1 + (7 - firstDay) + 7 * (week - 1);
         
         return <Week 
+            data={data}
             isFirstWeek={isFirstWeek}
             sundayOfWeek={sundayOfWeek}
             firstDay={firstDay}

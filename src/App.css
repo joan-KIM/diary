@@ -388,9 +388,8 @@ body{
   border: 1px solid #EA5455;
 }
 
-.selected{
+.circle.selected{
   background-color: #EA5455;
-  border: 1px solid #EA5455;
   color: #ffffff;
   font-weight:500;
 }
@@ -818,3 +817,38 @@ body{
   font-weight: 600;
 }
 
+.category-color-28c76f{
+  background-color: #28c76fbf;
+  color: white;
+  border: none;
+}
+
+.category-color-ff9f43{
+  background-color: #ff9f43bf;
+  color: white;
+  border: none;
+}
+
+.category-color-ff4961{
+  background-color: #ff4961bf;
+  color: white;
+  border: none;
+}
+
+.category-color-00cfe8{
+  background-color: #00cfe8bf;
+  color: white;
+  border: none;
+}
+
+.category-color-ffc107{
+  background-color: #ffc107bf;
+  color: white;
+  border: none;
+}
+
+.category-color-7367f0{
+  background-color: #7367f0bf;
+  color: white;
+  border: none;
+}

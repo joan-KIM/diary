@@ -62,6 +62,7 @@ export default function Monthly({date, data, updateEvent, changeHandler}) {
             <Category initialLabels={initialLabels} updateLabels={updateLabels} />
             <Calendar 
                 date={date} 
+                data={data}
                 changeHandler={changeHandler} 
                 categoryLabels={categoryLabels}
                 saveEvent={saveEvent}

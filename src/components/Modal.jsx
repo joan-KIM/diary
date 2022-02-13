@@ -11,12 +11,13 @@ export default function Modal({event, categoryLabels, closeModal , saveEvent, de
     // 옵션 모두 선택 후, selectTime으로 넘어온 (00:00 형태의 값)을 전달 받아서 시작시간, 종료시간 저장
     const [startTime, setStartTime] = useState(event ? event.startTime : '');
     const [endTime, setEndTime] = useState(event ? event.endTime : '');
-    const [category, setCategory] = useState(event ? event.category : '');
+    const [category, setCategory] = useState(event ? event.category : categoryLabels[0] );
 
     const labels = categoryLabels.map( label => {
         return      <input
                         type="radio"
                         name="label"
+                        checked={category.color === label.color}        // 리액트는 데이터 기반.. 선택되었다면 '선택됨' 정보 갖고 있어야함
                         className="event-category" 
                         onClick={e => selectCategory(label)}
                         style={{backgroundColor: label.color}}
@@ -37,10 +38,12 @@ export default function Modal({event, categoryLabels, closeModal , saveEvent, de
 
     const saveHandler = () => {
         closeModal();
-        saveEvent({id: event ? event.id : uuid(), title, place, category, startTime, endTime});
+        saveEvent({id: event ? event.id : uuid(),
+            title: title || '일정 제목 없음',
+            place: place || '장소 없음', 
+            category, startTime, endTime});
     }
 
-  
     return (
         <div className="modal-background" onClick={e => e.target.closest('.modal') || closeModal()} >
             <div className="modal">

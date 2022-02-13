@@ -3,7 +3,7 @@ import DatePicker from "./DatePicker";
 import TimelineItem from "./TimelineItem";
 import Modal from "./Modal";
 
-export default function Calendar({date, changeHandler, categoryLabels, saveEvent, events, deleteEvent}){
+export default function Calendar({date,data, changeHandler, categoryLabels, saveEvent, events, deleteEvent}){
     const [isShown, setIsShown] = useState(false);
     const [editEvent, setEditEvent] = useState(null);
     const openModal = () => setIsShown(true);
@@ -27,7 +27,7 @@ export default function Calendar({date, changeHandler, categoryLabels, saveEvent
     return (
         <div className='calendar-section' >
             <div className='calendar-container'>
-               <DatePicker selectedDate={date} changeHandler={changeHandler}></DatePicker>
+               <DatePicker data={data} selectedDate={date} changeHandler={changeHandler}></DatePicker>
 
                <button className='add-event-btn' onClick={e => {setEditEvent(null); openModal()} }>Add Event</button>
 
@@ -39,7 +39,7 @@ export default function Calendar({date, changeHandler, categoryLabels, saveEvent
                     categoryLabels={categoryLabels} 
                     saveEvent={saveEvent}
                     deleteEvent={deleteEvent}
-                    
+
                 /> }
                
                 <ul className='timeline'>

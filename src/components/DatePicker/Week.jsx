@@ -3,7 +3,7 @@ import { DAY_LIST } from "./constants";
 import Day from "./Day";
 import { toDate } from "../../utils/date";
 
-export default function Week({isFirstWeek, sundayOfWeek, year, month, firstDay, lastDay, lastDate, selectedDate, onClick}){
+export default function Week({data, isFirstWeek, sundayOfWeek, year, month, firstDay, lastDay, lastDate, selectedDate, onClick}){
     const days = DAY_LIST.map((_, day) => {
         let date = sundayOfWeek + day;
         const isPrev = isFirstWeek && firstDay > day;
@@ -19,6 +19,7 @@ export default function Week({isFirstWeek, sundayOfWeek, year, month, firstDay, 
 
         const value = toDate(new Date(year, month + (isPrev ? -1 : 0) + (isNext ? 1 : 0), date));
         return <Day 
+            events={data[value]?.events}
             date={date}
             value={value}
             isPrev={isPrev}
