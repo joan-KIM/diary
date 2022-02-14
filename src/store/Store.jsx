@@ -1,4 +1,5 @@
 import React, {useState, createContext} from "react";
+import useStorage from "../hook/useStorage";
 import {today} from "../utils/date";
 import {uuid} from "../utils/uuid";
 
@@ -17,6 +18,8 @@ export default function Store({children}) {
     const [data, setData] = useState({});
     const [selectedDate, setSelectedDate] = useState(today());
     const dailyData = data[selectedDate] || emptyDailyData;
+
+    useStorage(data, setData);
   
     const changeHandler = (value) => {
       setSelectedDate(value);
