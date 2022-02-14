@@ -1,16 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useContext } from "react";
 import { MdAdd } from "react-icons/md";
 import { pickColor } from "../../utils/color";
+import { CategoryContext } from "../../store/CategoryStore";
 import CategoryInputGroup from "./CategoryInputGroup";
 import CategoryList from "./CategoryList";
 
-export default function Category({initialLabels, updateLabels}){
+export default function Category(){
     const [isShown, setIsShown] = useState(false);
-    const [labels, setLabels] = useState(initialLabels);
-
-    useEffect(() => {
-        updateLabels(labels);
-    }, [labels])
+    const {labels, addNewLabel} = useContext(CategoryContext);
 
     const toggleHandler = (e) => {
         if(labels.length == 6) {
@@ -21,19 +18,8 @@ export default function Category({initialLabels, updateLabels}){
     }
 
     const addNewCalendar = (text) => {
-        setLabels([
-            ...labels,
-            {
-                'name' : text,
-                'color' : pickColor(labels)
-            }
-        ]);
+        addNewLabel();
         setIsShown(false);
-    }
-
-    const removeCalendar = (color) => {
-        const removedLabels = labels.filter(label => label.color !== color);
-        setLabels(removedLabels);
     }
 
     return (
@@ -44,7 +30,7 @@ export default function Category({initialLabels, updateLabels}){
                     { labels.length < 6 && <MdAdd className='show-inputgroup-btn' onClick={e => toggleHandler(e)} /> }
                 </div>
 
-                <CategoryList labels={labels} removeCalendar={removeCalendar} />
+                <CategoryList />
 
                 { isShown && <CategoryInputGroup addNewCalendar={addNewCalendar} bulletColor={pickColor(labels)} /> }
                 

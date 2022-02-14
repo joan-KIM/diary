@@ -3,7 +3,6 @@ import './App.css';
 import Monthly from "./components/Monthly";
 import Daily from "./components/Daily";
 import {today} from "./utils/date"
-import { uuid } from "./utils/uuid";
 
 function App() {
   const [data, setData] = useState({});

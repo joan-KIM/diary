@@ -1,33 +1,13 @@
-import React, { useEffect, useState} from "react";
+import React from "react";
 import Category from "./Category";
 import Calendar from "./Calendar";
+import CategoryStore from "../store/CategoryStore";
 
 export default function Monthly({date, data, updateEvent, changeHandler}) {
-    const initialLabels = [
-        {
-            'name':'Personal',
-            'color':'#7367f0'
-        },
-        {
-            'name':'Family',
-            'color':'#28c76f'
-        }, 
-        {
-            'name':'Business',
-            'color': '#ff9f43'
-        }
-    ]
-
-    const [categoryLabels, setCategoryLabels] = useState(initialLabels);
-
     // const events = (data[date] && data[date].events) || [];
     // data에 해당 date가 있어야 events에 접근가능
     const events = (data[date]?.events) || [];      //optional chaining
 
-    const updateLabels = (labels) => {
-        setCategoryLabels(labels);
-    }
- 
     const saveEvent = (event) => {
         let nextEvents = events;
         // 수정(같은 id를 갖고 있는 event가 있으면 대체)
@@ -55,18 +35,20 @@ export default function Monthly({date, data, updateEvent, changeHandler}) {
     }
 
     return(
-        <div className='monthly'>
-            <Category initialLabels={initialLabels} updateLabels={updateLabels} />
-            <Calendar 
-                date={date} 
-                data={data}
-                changeHandler={changeHandler} 
-                categoryLabels={categoryLabels}
-                saveEvent={saveEvent}
-                events={events}
-                deleteEvent={deleteEvent}
-            />
-        </div>
+        <CategoryStore>
+            <div className='monthly'>
+                <Category />
+                <Calendar 
+                    date={date} 
+                    data={data}
+                    changeHandler={changeHandler} 
+                    saveEvent={saveEvent}
+                    events={events}
+                    deleteEvent={deleteEvent}
+                />
+            </div>
+        </CategoryStore>
+       
     )
 }
 

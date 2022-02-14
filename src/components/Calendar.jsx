@@ -3,7 +3,7 @@ import DatePicker from "./DatePicker";
 import TimelineItem from "./TimelineItem";
 import Modal from "./Modal";
 
-export default function Calendar({date,data, changeHandler, categoryLabels, saveEvent, events, deleteEvent}){
+export default function Calendar({date,data, changeHandler, saveEvent, events, deleteEvent}){
     const [isShown, setIsShown] = useState(false);
     const [editEvent, setEditEvent] = useState(null);
     const openModal = () => setIsShown(true);
@@ -36,7 +36,6 @@ export default function Calendar({date,data, changeHandler, categoryLabels, save
                <Modal 
                     event={editEvent}           // timeline item 눌러서 수정을 위해 Modal창 띄워야할 경우, 해당 event 정보가 필요
                     closeModal={closeModal}
-                    categoryLabels={categoryLabels} 
                     saveEvent={saveEvent}
                     deleteEvent={deleteEvent}
 

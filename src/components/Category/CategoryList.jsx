@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+import { CategoryContext } from "../../store/CategoryStore";
 import CategoryLabel from "./CategoryLabel";
 
-export default function CategoryList({labels, removeCalendar}) {
+export default function CategoryList() {
+    const {labels} = useContext(CategoryContext)
     const labelList = labels.map( label => {
             return (
-                <CategoryLabel name={label.name} bulletColor={label.color} removeCalendar={removeCalendar} isShown={labels.length > 1} />
+                <CategoryLabel name={label.name} bulletColor={label.color} isShown={labels.length > 1} />
             )
     });
 

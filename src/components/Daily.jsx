@@ -6,6 +6,7 @@ import { uuid } from "../utils/uuid";
 import { today } from "../utils/date";
 
 export default function Daily({date, data, update}){
+    // 중복된 state
     const [title, setTitle] = useState(data?.note?.title);
     const [content, setContent] = useState(data?.note?.content);
     const [tasks, setTasks] = useState(data?.tasks);

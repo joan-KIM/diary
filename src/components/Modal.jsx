@@ -1,19 +1,23 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { MdOutlineDelete } from "react-icons/md";
 import classNames from "classnames";
 import TimePicker from "./TimePicker";
 import { uuid } from "../utils/uuid";
+import { CategoryContext } from "../store/CategoryStore";
 
-export default function Modal({event, categoryLabels, closeModal , saveEvent, deleteEvent}){
+export default function Modal({event, closeModal , saveEvent, deleteEvent}){
+    const {labels} = useContext(CategoryContext);
+
     // 등록된 이벤트가 있을 경우(일정 수정할 때) event 존재유무 확인후 초기값 설정
     const [title, setTitle] = useState(event ? event.title : '');
     const [place, setPlace] = useState(event ? event.place : '');
     // 옵션 모두 선택 후, selectTime으로 넘어온 (00:00 형태의 값)을 전달 받아서 시작시간, 종료시간 저장
     const [startTime, setStartTime] = useState(event ? event.startTime : '');
     const [endTime, setEndTime] = useState(event ? event.endTime : '');
-    const [category, setCategory] = useState(event ? event.category : categoryLabels[0] );
+    const [category, setCategory] = useState(event ? event.category : labels[0] );
 
-    const labels = categoryLabels.map( label => {
+    
+    const categoryList = labels.map( label => {
         return      <input
                         type="radio"
                         name="label"
@@ -79,7 +83,7 @@ export default function Modal({event, categoryLabels, closeModal , saveEvent, de
                     <div className="event-input-group">
                         <label for="event-category">Calendar</label>
                         <div className={classNames("event-inputbox-wrapper", "select-category")} >
-                            {labels}
+                            {categoryList}
                         </div>
                     </div>
                 </form>
