@@ -1,10 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import Week from "./Week";
 import {MdKeyboardArrowLeft, MdKeyboardArrowRight} from "react-icons/md";
 import {toDateObj, enMonth, toDate, today} from '../../utils/date';
 import { DAY_LIST } from "./constants";
+import { StoreContext } from "../../store/Store";
 
-export default function DatePicker({data, selectedDate, changeHandler}){
+export default function DatePicker(){
+    const {selectedDate, changeHandler} = useContext(StoreContext);
+
     const dateObj = toDateObj(selectedDate);
     const year = dateObj.getFullYear();
     const month = dateObj.getMonth();
@@ -25,7 +28,6 @@ export default function DatePicker({data, selectedDate, changeHandler}){
             : 1 + (7 - firstDay) + 7 * (week - 1);
         
         return <Week 
-            data={data}
             isFirstWeek={isFirstWeek}
             sundayOfWeek={sundayOfWeek}
             firstDay={firstDay}
@@ -33,8 +35,6 @@ export default function DatePicker({data, selectedDate, changeHandler}){
             lastDate={lastDate}
             year={year}
             month={month}
-            selectedDate={selectedDate}
-            onClick={changeHandler}
             />
     })
 

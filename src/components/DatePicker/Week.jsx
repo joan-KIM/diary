@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { DAY_LIST } from "./constants";
 import Day from "./Day";
 import { toDate } from "../../utils/date";
+import { StoreContext } from "../../store/Store";
 
-export default function Week({data, isFirstWeek, sundayOfWeek, year, month, firstDay, lastDay, lastDate, selectedDate, onClick}){
+export default function Week({isFirstWeek, sundayOfWeek, year, month, firstDay, lastDay, lastDate}){
+    const {data} = useContext(StoreContext);
     const days = DAY_LIST.map((_, day) => {
         let date = sundayOfWeek + day;
         const isPrev = isFirstWeek && firstDay > day;
@@ -24,8 +26,6 @@ export default function Week({data, isFirstWeek, sundayOfWeek, year, month, firs
             value={value}
             isPrev={isPrev}
             isNext={isNext}
-            selected={selectedDate}
-            onClick={onClick}
             />
     })
 

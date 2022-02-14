@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 import Category from "./Category";
 import Calendar from "./Calendar";
 import CategoryStore from "../store/CategoryStore";
+import { StoreContext } from "../store/Store";
 
-export default function Monthly({date, data, updateEvent, changeHandler}) {
+export default function Monthly() {
+    const {selectedDate, data, updateEvent} = useContext(StoreContext);
+
     // const events = (data[date] && data[date].events) || [];
     // data에 해당 date가 있어야 events에 접근가능
-    const events = (data[date]?.events) || [];      //optional chaining
+    const events = (data[selectedDate]?.events) || [];      //optional chaining
 
     const saveEvent = (event) => {
         let nextEvents = events;
@@ -26,12 +29,12 @@ export default function Monthly({date, data, updateEvent, changeHandler}) {
         }
         
         const sortedEvents = nextEvents.sort((a,b) => a.startTime - b.startTime);
-        updateEvent(date, sortedEvents);
+        updateEvent(selectedDate, sortedEvents);
     }
 
     const deleteEvent = (id) => {
         const deletedEvents = events.filter(event => event.id !== id );
-        updateEvent(date, deletedEvents)
+        updateEvent(selectedDate, deletedEvents)
     }
 
     return(
@@ -39,9 +42,6 @@ export default function Monthly({date, data, updateEvent, changeHandler}) {
             <div className='monthly'>
                 <Category />
                 <Calendar 
-                    date={date} 
-                    data={data}
-                    changeHandler={changeHandler} 
                     saveEvent={saveEvent}
                     events={events}
                     deleteEvent={deleteEvent}

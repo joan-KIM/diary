@@ -1,24 +1,26 @@
-import React, {useState, useEffect} from "react";
+import React, {useState, useEffect, useContext} from "react";
 import Date from "./Date";
 import TodoList from "./TodoList";
 import Note from "./Note";
 import { uuid } from "../utils/uuid";
 import { today } from "../utils/date";
+import { StoreContext } from "../store/Store";
 
-export default function Daily({date, data, update}){
+export default function Daily(){
+    const {selectedDate, data, update} = useContext(StoreContext);
     // 중복된 state
-    const [title, setTitle] = useState(data?.note?.title);
-    const [content, setContent] = useState(data?.note?.content);
-    const [tasks, setTasks] = useState(data?.tasks);
-    const [curDate, setCurDate] = useState(date);
+    const [title, setTitle] = useState(data[selectedDate]?.note?.title || "");
+    const [content, setContent] = useState(data[selectedDate]?.note?.content || "");
+    const [tasks, setTasks] = useState(data[selectedDate]?.tasks || []);
+    const [curDate, setCurDate] = useState(selectedDate);
 
     useEffect(() => {
-        setTasks(data?.tasks);
-        setTitle(data?.note?.title);
-        setContent(data?.note?.content);
+        setTasks(data[selectedDate]?.tasks || []);
+        setTitle(data[selectedDate]?.note?.title || "");
+        setContent(data[selectedDate]?.note?.content || "");
         update(curDate, tasks, {title, content});
-        setCurDate(date);
-    }, [date])
+        setCurDate(selectedDate);
+    }, [selectedDate])
 
     const changeHandler = (text) => {
         setTitle(text);
@@ -61,7 +63,7 @@ export default function Daily({date, data, update}){
     return (
         <div className='daily'>
             <div style={ {display:'flex', height: '45%'} }>
-                <Date date={date} />
+                <Date  />
                 <TodoList
                     tasks={tasks}
                     createTask={createTask}
@@ -81,7 +83,7 @@ export default function Daily({date, data, update}){
 }
 
 Daily.defaultProps = {
-    date: today(),
+    selectedDate: today(),
     data: {
         tasks: [],
         note: {

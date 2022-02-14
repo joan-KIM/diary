@@ -1,9 +1,9 @@
-import React, {useState} from "react";
+import React, {useContext, useState} from "react";
 import DatePicker from "./DatePicker";
 import TimelineItem from "./TimelineItem";
 import Modal from "./Modal";
 
-export default function Calendar({date,data, changeHandler, saveEvent, events, deleteEvent}){
+export default function Calendar({saveEvent, events, deleteEvent}){
     const [isShown, setIsShown] = useState(false);
     const [editEvent, setEditEvent] = useState(null);
     const openModal = () => setIsShown(true);
@@ -27,7 +27,7 @@ export default function Calendar({date,data, changeHandler, saveEvent, events, d
     return (
         <div className='calendar-section' >
             <div className='calendar-container'>
-               <DatePicker data={data} selectedDate={date} changeHandler={changeHandler}></DatePicker>
+               <DatePicker ></DatePicker>
 
                <button className='add-event-btn' onClick={e => {setEditEvent(null); openModal()} }>Add Event</button>
 
