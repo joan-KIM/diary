@@ -3,7 +3,6 @@ import Category from "./Category";
 import Calendar from "./Calendar";
 
 export default function Monthly({date, data, updateEvent, changeHandler}) {
-    // console.log(data.events);
     const initialLabels = [
         {
             'name':'Personal',
@@ -20,7 +19,6 @@ export default function Monthly({date, data, updateEvent, changeHandler}) {
     ]
 
     const [categoryLabels, setCategoryLabels] = useState(initialLabels);
-    // const [events, setEvents] = useState([]);
 
     // const events = (data[date] && data[date].events) || [];
     // data에 해당 date가 있어야 events에 접근가능
@@ -29,7 +27,6 @@ export default function Monthly({date, data, updateEvent, changeHandler}) {
     const updateLabels = (labels) => {
         setCategoryLabels(labels);
     }
-
  
     const saveEvent = (event) => {
         let nextEvents = events;
