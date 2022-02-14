@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import {MdModeEdit, MdDone} from "react-icons/md"; 
+import { StoreContext } from "../../store/Store";
 
-export default function Note({title, content, changeHandler, typing}){
+export default function Note(){
+    const {dailyData: {note:{title, content}},updateNote} = useContext(StoreContext);
     const [isEditing, setIsEditing] = useState(!title);
     
     const toggleHandler = () => {
@@ -23,9 +25,9 @@ export default function Note({title, content, changeHandler, typing}){
                             className='note-title' 
                             placeholder='Note Title' 
                             value={title} 
-                            onChange={e => changeHandler(e.target.value)}
+                            onChange={e => updateNote({title: e.target.value, content}) }
                         />
-                        <textarea className='note' value={content} onChange={e => typing(e.target.value)} ></textarea>
+                        <textarea className='note' value={content} onChange={e => updateNote({content: e.target.value, title})} ></textarea>
                     </>
                     :
                     <>

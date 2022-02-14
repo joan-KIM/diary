@@ -5,11 +5,11 @@ import Modal from "./Modal";
 
 export default function Calendar({saveEvent, events, deleteEvent}){
     const [isShown, setIsShown] = useState(false);
-    const [editEvent, setEditEvent] = useState(null);
+    const [editEvent, setEditEvent] = useState(undefined);
     const openModal = () => setIsShown(true);
     const closeModal = () => {
         setIsShown(false);
-        setEditEvent(null);
+        setEditEvent(undefined);
     }
         
     const onClick = (event) => {
@@ -29,7 +29,7 @@ export default function Calendar({saveEvent, events, deleteEvent}){
             <div className='calendar-container'>
                <DatePicker ></DatePicker>
 
-               <button className='add-event-btn' onClick={e => {setEditEvent(null); openModal()} }>Add Event</button>
+               <button className='add-event-btn' onClick={e => {setEditEvent(undefined); openModal()} }>Add Event</button>
 
                {isShown 
                &&
