@@ -1,10 +1,8 @@
-import React, {useState, useEffect, useContext} from "react";
+import React from "react";
 import Date from "./Date";
 import TodoList from "./TodoList";
 import Note from "./Note";
-import { uuid } from "../utils/uuid";
 import { today } from "../utils/date";
-import { StoreContext } from "../store/Store";
 
 export default function Daily(){
     return (

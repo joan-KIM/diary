@@ -1,12 +1,12 @@
-import React, { useContext, useState } from "react";
+import React from "react";
 import { MdOutlineDelete } from "react-icons/md";
 import classNames from "classnames";
 import TimePicker from "./TimePicker";
-import { uuid } from "../utils/uuid";
-import { CategoryContext } from "../store/CategoryStore";
 import useEvent from "../hook/useEvent";
 
-export default function Modal({event, closeModal , saveEvent, deleteEvent}){
+export default function Modal({event, closeModal, saveEvent, deleteEvent}){
+    // event를 전달해주고, Modal에서 필요한 state 값이랑 메서드를 받아옴
+    // saveEvent와 closeModal은 saveHandler 때문에 넘겨줌
     const {
         title,
         place,

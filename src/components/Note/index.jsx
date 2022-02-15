@@ -3,7 +3,7 @@ import {MdModeEdit, MdDone} from "react-icons/md";
 import { StoreContext } from "../../store/Store";
 
 export default function Note(){
-    const {dailyData: {note:{title, content}},updateNote} = useContext(StoreContext);
+    const {dailyData: {note:{title, content}}, updateNote} = useContext(StoreContext);
     const [isEditing, setIsEditing] = useState(!title);
     
     const toggleHandler = () => {
